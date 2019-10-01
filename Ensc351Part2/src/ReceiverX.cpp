@@ -66,11 +66,11 @@ void ReceiverX::receiveFile()
 	// inform sender that the receiver is ready and that the
 	//		sender can send the first block
 	sendByte(NCGbyte);
-
+	uint8_t blkNum = 1;
 	while(PE_NOT(myRead(mediumD, rcvBlk, 1), 1), (rcvBlk[0] == SOH))
 	{
 		getRestBlk();
-		//check block number and checksum or CRC
+		//check block number
 		if (rcvBlk[1] != 255 - rcvBlk[2])
 		{
 		    result = "Block number does not match";
@@ -78,6 +78,19 @@ void ReceiverX::receiveFile()
 	        sendByte(NAK);
 		    continue;
 		}
+		//check received blkNum to local blkNum
+		if (blkNum != rcvBlk[1])
+		{
+		    //if received previous block, send ACK but don't write
+		    if (blkNum - 1 == rcvBlk[1])
+		    {
+		        std::cout << "Received duplicate block, ignoring: " << (int)rcvBlk[1] << std::endl;
+	            sendByte(ACK);
+	            continue;
+		    }
+
+		}
+		//verify CRC
 		if (Crcflg)
 		{
 		    uint16_t crcNum = 0;
@@ -90,6 +103,7 @@ void ReceiverX::receiveFile()
                 continue;
             }
 		}
+		//verify checksum
 		else
 		{
             uint8_t checksum = 0;
@@ -100,7 +114,7 @@ void ReceiverX::receiveFile()
             if (checksum != rcvBlk[3+CHUNK_SZ])
             {
                 result = "Checksum does not match";
-                std::cout << result << std::endl;
+                std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
                 sendByte(NAK);
                 continue;
             }
@@ -109,6 +123,7 @@ void ReceiverX::receiveFile()
 		sendByte(ACK);
 		std::cout << "Received block successfully: " << (int)rcvBlk[1] << std::endl;
 		writeChunk();
+		++blkNum;
 	};
 	// assume EOT was just read in the condition for the while loop
 	sendByte(NAK); // NAK the first EOT
@@ -129,7 +144,8 @@ time that the block was received in "good" condition.
 void ReceiverX::getRestBlk()
 {
 	// ********* this function must be improved ***********
-	PE_NOT(myReadcond(mediumD, &rcvBlk[1], REST_BLK_SZ_CRC, REST_BLK_SZ_CRC, 0, 0), REST_BLK_SZ_CRC);
+    int blkSz = Crcflg ? REST_BLK_SZ_CRC : REST_BLK_SZ_CS;
+	PE_NOT(myReadcond(mediumD, &rcvBlk[1], blkSz, blkSz, 0, 0), blkSz);
 	goodBlk1st = goodBlk = true;
 }
 

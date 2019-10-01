@@ -138,7 +138,6 @@ void SenderX::genBlk(blkT blkBuf)
 void SenderX::prep1stBlk()
 {
 	// **** this function will need to be modified ****
-    ++blkNum;
 	genBlk(blkBufs[next]);
 }
 

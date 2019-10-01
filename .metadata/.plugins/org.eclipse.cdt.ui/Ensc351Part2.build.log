@@ -1,6 +1,15 @@
-12:15:02 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+12:52:30 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../src/ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+Finished building: ../src/ReceiverX.cpp
+ 
+Building target: Ensc351Part2
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+Finished building target: Ensc351Part2
+ 
 
-12:15:02 Build Finished (took 431ms)
+12:52:31 Build Finished (took 1s.209ms)
 
