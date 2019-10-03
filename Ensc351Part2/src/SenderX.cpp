@@ -210,7 +210,7 @@ void SenderX::sendFile()
 		result = "OpenError";
 	}
 	else {
-	    enum {S_START, S_ACKNAK, S_CAN, S_EOT1, S_EOTEOT};
+	    enum {S_START, S_ACKNAK, S_CAN, S_EOT1, S_EOTEOT, S_ERROR};
 		//blkNum = 0; // but first block sent will be block #1, not #0
         Crcflg = true;
 		prep1stBlk();
@@ -225,6 +225,10 @@ void SenderX::sendFile()
 		// 	different structure if you want.
         while (true)
         {
+            if (state == S_ERROR)
+            {
+                break;
+            }
             PE_NOT(myRead(mediumD, &byteToReceive, 1), 1); // assuming get a 'C'
             //debug
             cout << "Sender received byte: " << (int)byteToReceive << std::endl;
@@ -255,6 +259,10 @@ void SenderX::sendFile()
                     }
                     state = S_EOT1;
                 }
+                else
+                {
+                    state = S_ERROR;
+                }
             }
 
             else if (state == S_ACKNAK)
@@ -276,12 +284,22 @@ void SenderX::sendFile()
                     resendBlk();
                     errCnt++;
                 }
+                else if (byteToReceive && (errCnt >= errB))
+                {
+                    can8();
+                    result = "ExcessiveNAKs";
+                    break;
+                }
                 else if (byteToReceive == ACK && !bytesRd)
                 {
                     sendByte(EOT);
                     errCnt = 0;
                     firstCrcBlk = false;
                     state = S_EOT1;
+                }
+                else
+                {
+                    state = S_ERROR;
                 }
             }
 
@@ -292,6 +310,10 @@ void SenderX::sendFile()
                     result = "RcvCancelled";
                     //clearCan();
                     break;
+                }
+                else
+                {
+                    state = S_ERROR;
                 }
             }
 
@@ -306,6 +328,10 @@ void SenderX::sendFile()
                 {
                     result = "1st EOT ACK'd";
                     break;
+                }
+                else
+                {
+                    state = S_ERROR;
                 }
             }
 
@@ -327,7 +353,18 @@ void SenderX::sendFile()
                     result = "Done";
                     break;
                 }
+                else
+                {
+                    state = S_ERROR;
+                }
             }
+        }
+
+        if (state == S_ERROR)
+        {
+            cerr << "Sender received totally unexpected char #" << byteToReceive << ": " << (char)byteToReceive << endl;
+            result = "Sender received totally unexpected char";
+            exit(EXIT_FAILURE);
         }
 
         //S_END pseudostate

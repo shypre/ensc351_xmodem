@@ -63,50 +63,124 @@ void ReceiverX::receiveFile()
 	// below is just an example template.  You can follow a
 	// 	different structure if you want.
 
-	// inform sender that the receiver is ready and that the
-	//		sender can send the first block
-	sendByte(NCGbyte);
 	uint8_t blkNum = 1;
-	while(PE_NOT(myRead(mediumD, rcvBlk, 1), 1), (rcvBlk[0] == SOH))
-	{
-		getRestBlk();
-		//check block number
-		if (rcvBlk[1] != 255 - rcvBlk[2])
-		{
-		    result = "Block number does not match";
-		    std::cout << result << std::endl;
-	        sendByte(NAK);
-		    continue;
-		}
-		//check received blkNum to local blkNum
-		if (blkNum != rcvBlk[1])
-		{
-		    std::cout << "Receiver block number mismatch" << std::endl;
-		    //if received previous block, send ACK but don't write
-		    if (blkNum - 1 == rcvBlk[1])
-		    {
-		        std::cout << "Received duplicate block, ignoring: " << (int)rcvBlk[1] << std::endl;
-	            sendByte(ACK);
-	            continue;
-		    }
+	enum {S_START, S_RECV, S_VBLKNUM, S_VCS, S_VCRC, S_WRITE, S_EOT, S_ERROR};
+	int state = S_START;
 
-		}
-		//verify CRC
-		if (Crcflg)
-		{
-		    uint16_t crcNum = 0;
-		    crc16ns(&crcNum, &rcvBlk[3]);
+	while(true)
+	{
+	    std::cout << "Receiver current state: " << state << std::endl;
+	    if (state == S_ERROR)
+	    {
+	        std::cerr << "Fatal error: exiting" << std::endl;
+	    }
+
+	    else if (state == S_START)
+	    {
+	        // inform sender that the receiver is ready and that the
+	        //      sender can send the first block
+	        sendByte(NCGbyte);
+	        state = S_RECV;
+	    }
+
+	    else if (state == S_EOT)
+	    {
+	        std::cout << "Receiver got EOT" << std::endl;
+            //sendByte(NAK); // NAK the first EOT
+            //PE_NOT(myRead(mediumD, rcvBlk, 1), 1);  // presumably read in another EOT
+            std::cout << "Receiver received (first) byte: " << (int)rcvBlk[0] << std::endl;
+            if (rcvBlk[0] == EOT)
+            {
+                sendByte(ACK); // ACK the second EOT
+                break;
+            }
+            else
+            {
+                state = S_ERROR;
+            }
+	    }
+
+	    else if (state == S_RECV)
+	    {
+	        PE_NOT(myRead(mediumD, rcvBlk, 1), 1);
+            std::cout << "Receiver received (first) byte: " << (int)rcvBlk[0] << std::endl;
+	        if (rcvBlk[0] == EOT)
+	        {
+	            state = S_EOT;
+	        }
+	        else if (rcvBlk[0] != SOH)
+	        {
+	            syncLoss = true;
+	            goodBlk = false;
+	            goodBlk1st = false;
+	            result = "Fatal error: SOH byte corrupt";
+	            std::cout << result << std::endl;
+	            break;
+	        }
+	        else
+	        {
+                getRestBlk();
+                state = S_VBLKNUM;
+	        }
+	    }
+
+	    else if (state == S_VBLKNUM)
+	    {
+	        //check block number
+	        if (rcvBlk[1] != 255 - rcvBlk[2])
+	        {
+	            //result = "Block number does not match";
+	            std::cout << "Block number does not match complement" << std::endl;
+	            sendByte(NAK);
+	            state = S_RECV;
+	        }
+	        //check received blkNum to local blkNum
+	        else if (blkNum != rcvBlk[1])
+	        {
+	            //if received previous block, send ACK but don't write
+	            if (blkNum - 1 == rcvBlk[1])
+	            {
+	                std::cout << "Received duplicate block, ignoring: " << (int)rcvBlk[1] << std::endl;
+	                sendByte(ACK);
+	                state = S_RECV;
+	            }
+	            else
+	            {
+	                syncLoss = true;
+	                state = S_ERROR;
+	                result = "Fatal error: block number synchronization loss";
+	                std::cout << result << std::endl;
+	                break;
+	            }
+	        }
+	        else
+	        {
+	            state = Crcflg ? S_VCRC : S_VCS;
+	        }
+	    }
+
+	    else if (state == S_VCRC)
+	    {
+	        //verify CRC
+
+            uint16_t crcNum = 0;
+            crc16ns(&crcNum, &rcvBlk[3]);
             if (memcmp(&crcNum, &rcvBlk[3+CHUNK_SZ], 2))
             {
                 result = "CRC does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
                 sendByte(NAK);
-                continue;
+                state = S_RECV;
             }
-		}
-		//verify checksum
-		else
-		{
+            else
+            {
+                state = S_WRITE;
+            }
+	    }
+
+	    else if (state == S_VCS)
+        {
+	        //verify checksum
             uint8_t checksum = 0;
             for (int i = 3; i < 3 + CHUNK_SZ; ++i)
             {
@@ -117,22 +191,32 @@ void ReceiverX::receiveFile()
                 result = "Checksum does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
                 sendByte(NAK);
-                continue;
+                state = S_RECV;
             }
-		}
+            else
+            {
+                state = S_WRITE;
+            }
+	    }
 
-		sendByte(ACK);
-		std::cout << "Received block successfully: " << (int)rcvBlk[1] << std::endl;
-		writeChunk();
-		++blkNum;
-	};
-	// assume EOT was just read in the condition for the while loop
-	sendByte(NAK); // NAK the first EOT
-	PE_NOT(myRead(mediumD, rcvBlk, 1), 1); // presumably read in another EOT
-	(close(transferringFileD));
-	// check if the file closed properly.  If not, result should be something other than "Done".
-	result = "Done"; //assume the file closed properly.
-	sendByte(ACK); // ACK the second EOT
+	    else if (state == S_WRITE)
+	    {
+	        sendByte(ACK);
+	        std::cout << "Received block successfully: " << (int)rcvBlk[1] << std::endl;
+	        writeChunk();
+	        ++blkNum;
+	        state = S_RECV;
+	    }
+	}
+    if (close(transferringFileD) != 0)
+    {
+        // check if the file closed properly.  If not, result should be something other than "Done".
+        result = "File did not close properly";
+    }
+    else
+    {
+        result = "Done"; //assume the file closed properly.
+    }
 }
 
 /* Only called after an SOH character has been received.
