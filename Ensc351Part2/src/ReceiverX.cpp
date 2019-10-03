@@ -48,7 +48,7 @@ ReceiverX(int d, const char *fname, bool useCrc)
 NCGbyte(useCrc ? 'C' : NAK),
 goodBlk(false), 
 goodBlk1st(false), 
-syncLoss(true),
+syncLoss(false),
 numLastGoodBlk(0)
 {
 }
@@ -81,6 +81,7 @@ void ReceiverX::receiveFile()
 		//check received blkNum to local blkNum
 		if (blkNum != rcvBlk[1])
 		{
+		    std::cout << "Receiver block number mismatch" << std::endl;
 		    //if received previous block, send ACK but don't write
 		    if (blkNum - 1 == rcvBlk[1])
 		    {

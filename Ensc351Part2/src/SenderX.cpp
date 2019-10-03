@@ -138,6 +138,7 @@ void SenderX::genBlk(blkT blkBuf)
 void SenderX::prep1stBlk()
 {
 	// **** this function will need to be modified ****
+    blkNum = 0;
 	genBlk(blkBufs[next]);
 }
 
@@ -191,11 +192,13 @@ void SenderX::can8()
 	// use the C++11/14 standard library to generate the delays
     char buffer[2];
     memset( buffer, CAN, 2);
-    for (int i = 0; i < CAN_LEN/2; ++i)
+    for (int i = 0; i < CAN_LEN/2 - 1; ++i)
     {
         PE_NOT(myWrite(mediumD, buffer, 2), 2);
         std::this_thread::sleep_for (std::chrono::milliseconds(TM_2CHAR + TM_CHAR)/2 * mSECS_PER_UNIT);
     }
+    //don't sleep after sending last pair of CANs
+    PE_NOT(myWrite(mediumD, buffer, 2), 2);
 }
 
 void SenderX::sendFile()
@@ -207,42 +210,128 @@ void SenderX::sendFile()
 		result = "OpenError";
 	}
 	else {
+	    enum {S_START, S_ACKNAK, S_CAN, S_EOT1, S_EOTEOT};
 		//blkNum = 0; // but first block sent will be block #1, not #0
+        Crcflg = true;
 		prep1stBlk();
+		errCnt = 0;
+		firstCrcBlk = true;
+        char byteToReceive;
+        int state = S_START;
+
 
 		// ***** modify the below code according to the protocol *****
 		// below is just a starting point.  You can follow a
 		// 	different structure if you want.
-		char byteToReceive;
-		PE_NOT(myRead(mediumD, &byteToReceive, 1), 1); // assuming get a 'C'
-		if (byteToReceive == 'C')
-		{
-		    Crcflg = true;
-		}
-		else
-		{
-            Crcflg = false;
-            cs1stBlk();
-		}
+        while (true)
+        {
+            PE_NOT(myRead(mediumD, &byteToReceive, 1), 1); // assuming get a 'C'
+            //debug
+            cout << "Sender received byte: " << (int)byteToReceive << std::endl;
+            cout << "Sender current state: " << state << std::endl;
 
-		while (bytesRd) {
-			sendBlkPrepNext();
-			// assuming below we get an ACK
-			PE_NOT(myRead(mediumD, &byteToReceive, 1), 1);
-			while (byteToReceive == NAK)
-			{
-                cout << "Sender received NAK at blkNum: " << (int)blkNum << endl;
-			    resendBlk();
-	            PE_NOT(myRead(mediumD, &byteToReceive, 1), 1);
-			}
-		}
-		sendByte(EOT); // send the first EOT
-		PE_NOT(myRead(mediumD, &byteToReceive, 1), 1); // assuming get a NAK
-		sendByte(EOT); // send the second EOT
-		PE_NOT(myRead(mediumD, &byteToReceive, 1), 1); // assuming get an ACK
-		result = "Done";
+            //global transitions?
 
-		PE(myClose(transferringFileD));
+            if (state == S_START)
+            {
+                if ((byteToReceive == 'C' || byteToReceive == NAK) && bytesRd)
+                {
+                    if (byteToReceive == NAK)
+                    {
+                        cout << "Sender received Checksum byte" << std::endl;
+                        Crcflg = false;
+                        cs1stBlk();
+                        firstCrcBlk = false;
+                    }
+                    sendBlkPrepNext();
+                    state = S_ACKNAK;
+                }
+                else if ((byteToReceive == 'C' || byteToReceive == NAK) && !bytesRd)
+                {
+                    if (byteToReceive == NAK)
+                    {
+                        firstCrcBlk = false;
+                        sendByte(EOT);
+                    }
+                    state = S_EOT1;
+                }
+            }
+
+            else if (state == S_ACKNAK)
+            {
+                if ((byteToReceive == ACK) && bytesRd)
+                {
+                    cout << "Sending block: " << (int)blkBufs[next][1] << endl;
+                    sendBlkPrepNext();
+                    errCnt = 0;
+                    firstCrcBlk = false;
+                }
+                else if (byteToReceive == CAN)
+                {
+                    state = S_CAN;
+                }
+                else if ((byteToReceive == NAK || (byteToReceive == 'C' && firstCrcBlk)) && (errCnt < errB))
+                {
+                    cout << "Sender received NAK at blkNum: " << (int)blkBufs[curr][1] << endl;
+                    resendBlk();
+                    errCnt++;
+                }
+                else if (byteToReceive == ACK && !bytesRd)
+                {
+                    sendByte(EOT);
+                    errCnt = 0;
+                    firstCrcBlk = false;
+                    state = S_EOT1;
+                }
+            }
+
+            else if (state == S_CAN)
+            {
+                if (byteToReceive == CAN)
+                {
+                    result = "RcvCancelled";
+                    //clearCan();
+                    break;
+                }
+            }
+
+            else if (state == S_EOT1)
+            {
+                if (byteToReceive == NAK)
+                {
+                    sendByte(EOT);
+                    state = S_EOTEOT;
+                }
+                else if (byteToReceive == ACK)
+                {
+                    result = "1st EOT ACK'd";
+                    break;
+                }
+            }
+
+            else if (state == S_EOTEOT)
+            {
+                if (byteToReceive == NAK && errCnt < errB)
+                {
+                    sendByte(EOT);
+                    errCnt++;
+                }
+                else if (byteToReceive == 'C')
+                {
+                    can8();
+                    result = "UnexpectedC";
+                    break;
+                }
+                else if (byteToReceive == ACK)
+                {
+                    result = "Done";
+                    break;
+                }
+            }
+        }
+
+        //S_END pseudostate
+        PE(myClose(transferringFileD));
 		/*
 		if (-1 == myClose(transferringFileD))
 			VNS_ErrorPrinter("myClose(transferringFileD)", __func__, __FILE__, __LINE__, errno);

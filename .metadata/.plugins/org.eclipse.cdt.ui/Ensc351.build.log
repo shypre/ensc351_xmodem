@@ -1,6 +1,6 @@
-12:52:29 **** Incremental Build of configuration Debug for project Ensc351 ****
+19:49:22 **** Incremental Build of configuration Debug for project Ensc351 ****
 make all 
 make: Nothing to be done for 'all'.
 
-12:52:30 Build Finished (took 396ms)
+19:49:22 Build Finished (took 335ms)
 
