@@ -64,15 +64,18 @@ void ReceiverX::receiveFile()
 	// 	different structure if you want.
 
 	uint8_t blkNum = 1;
-	enum {S_START, S_RECV, S_VBLKNUM, S_VCS, S_VCRC, S_WRITE, S_EOT, S_ERROR};
+	goodBlk1st = false;
+	enum {S_START, S_RECV, S_VBLKNUM, S_VCS, S_VCRC, S_WRITE, S_ACK, S_NAK, S_EOT, S_CAN, S_ERROR};
 	int state = S_START;
 
 	while(true)
 	{
 	    std::cout << "Receiver current state: " << state << std::endl;
+
 	    if (state == S_ERROR)
 	    {
 	        std::cerr << "Fatal error: exiting" << std::endl;
+            exit(EXIT_FAILURE);
 	    }
 
 	    else if (state == S_START)
@@ -86,8 +89,8 @@ void ReceiverX::receiveFile()
 	    else if (state == S_EOT)
 	    {
 	        std::cout << "Receiver got EOT" << std::endl;
-            //sendByte(NAK); // NAK the first EOT
-            //PE_NOT(myRead(mediumD, rcvBlk, 1), 1);  // presumably read in another EOT
+            sendByte(NAK); // NAK the first EOT
+            PE_NOT(myRead(mediumD, rcvBlk, 1), 1);  // presumably read in another EOT
             std::cout << "Receiver received (first) byte: " << (int)rcvBlk[0] << std::endl;
             if (rcvBlk[0] == EOT)
             {
@@ -96,8 +99,34 @@ void ReceiverX::receiveFile()
             }
             else
             {
+                result = "Receiver received totally unexpected char";
                 state = S_ERROR;
             }
+	    }
+
+	    else if (state == S_ACK)
+	    {
+	        sendByte(ACK);
+	        errCnt = 0;
+	        //goodBlk = true;
+	        state = S_RECV;
+	    }
+
+        else if (state == S_NAK)
+        {
+            sendByte(NAK);
+            ++errCnt;
+            //goodBlk = false;
+            //goodBlk1st = false;
+            state = S_RECV;
+        }
+
+	    else if (state == S_CAN)
+	    {
+	        can8();
+	        result = "Cancelled";
+	        std::cout << "Receiver CAN sequence sent" << std::endl;
+	        break;
 	    }
 
 	    else if (state == S_RECV)
@@ -108,19 +137,20 @@ void ReceiverX::receiveFile()
 	        {
 	            state = S_EOT;
 	        }
-	        else if (rcvBlk[0] != SOH)
-	        {
-	            syncLoss = true;
-	            goodBlk = false;
-	            goodBlk1st = false;
-	            result = "Fatal error: SOH byte corrupt";
-	            std::cout << result << std::endl;
-	            break;
-	        }
-	        else
-	        {
+            else if (rcvBlk[0] == SOH)
+            {
                 getRestBlk();
                 state = S_VBLKNUM;
+            }
+	        else if ((rcvBlk[0] != SOH) && (rcvBlk[0] != EOT))
+	        {
+	            //syncLoss = true;
+	            //goodBlk = false;
+	            //goodBlk1st = false;
+	            result = "Fatal error: SOH byte corrupt";
+	            std::cerr << result << std::endl;
+	            //break;
+	            state = S_CAN;
 	        }
 	    }
 
@@ -131,48 +161,46 @@ void ReceiverX::receiveFile()
 	        {
 	            //result = "Block number does not match";
 	            std::cout << "Block number does not match complement" << std::endl;
-	            sendByte(NAK);
-	            state = S_RECV;
+	            state = S_NAK;
 	        }
 	        //check received blkNum to local blkNum
-	        else if (blkNum != rcvBlk[1])
+	        else if ((rcvBlk[1] == 255 - rcvBlk[2]) && ((blkNum - 1 == rcvBlk[1]) && goodBlk1st))
 	        {
 	            //if received previous block, send ACK but don't write
-	            if (blkNum - 1 == rcvBlk[1])
-	            {
-	                std::cout << "Received duplicate block, ignoring: " << (int)rcvBlk[1] << std::endl;
-	                sendByte(ACK);
-	                state = S_RECV;
-	            }
-	            else
-	            {
-	                syncLoss = true;
-	                state = S_ERROR;
-	                result = "Fatal error: block number synchronization loss";
-	                std::cout << result << std::endl;
-	                break;
-	            }
+                std::cout << "Received duplicate block, ignoring: " << (int)rcvBlk[1] << std::endl;
+                state = S_ACK;
 	        }
-	        else
+	        else if ((rcvBlk[1] == 255 - rcvBlk[2]) && (blkNum != rcvBlk[1]) && ((blkNum - 1 == rcvBlk[1]) && !goodBlk1st))
 	        {
-	            state = Crcflg ? S_VCRC : S_VCS;
+                //syncLoss = true;
+                result = "Fatal error: block number synchronization loss";
+                std::cout << result << std::endl;
+                //break;
+                state = S_CAN;
 	        }
+	        else if ((rcvBlk[1] == 255 - rcvBlk[2]) && (blkNum == rcvBlk[1]) && Crcflg)
+	        {
+	            state = S_VCRC;
+	        }
+	        else if ((rcvBlk[1] == 255 - rcvBlk[2]) && (blkNum == rcvBlk[1]) && !Crcflg)
+            {
+                state = S_VCS;
+            }
 	    }
 
 	    else if (state == S_VCRC)
 	    {
 	        //verify CRC
-
             uint16_t crcNum = 0;
             crc16ns(&crcNum, &rcvBlk[3]);
-            if (memcmp(&crcNum, &rcvBlk[3+CHUNK_SZ], 2))
+            bool match = !(bool)memcmp(&crcNum, &rcvBlk[3+CHUNK_SZ], 2);
+            if (!match)
             {
                 result = "CRC does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
-                sendByte(NAK);
-                state = S_RECV;
+                state = S_NAK;
             }
-            else
+            else if (match)
             {
                 state = S_WRITE;
             }
@@ -186,14 +214,14 @@ void ReceiverX::receiveFile()
             {
                 checksum += rcvBlk[i];
             }
-            if (checksum != rcvBlk[3+CHUNK_SZ])
+            bool match = (checksum == rcvBlk[3+CHUNK_SZ]);
+            if (!match)
             {
                 result = "Checksum does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
-                sendByte(NAK);
-                state = S_RECV;
+                state = S_NAK;
             }
-            else
+            else if (match)
             {
                 state = S_WRITE;
             }
@@ -205,13 +233,16 @@ void ReceiverX::receiveFile()
 	        std::cout << "Received block successfully: " << (int)rcvBlk[1] << std::endl;
 	        writeChunk();
 	        ++blkNum;
+	        goodBlk1st = true;
 	        state = S_RECV;
 	    }
 	}
+
     if (close(transferringFileD) != 0)
     {
         // check if the file closed properly.  If not, result should be something other than "Done".
         result = "File did not close properly";
+        std::cout << result << std::endl;
     }
     else
     {

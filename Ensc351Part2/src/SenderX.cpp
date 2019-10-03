@@ -242,10 +242,14 @@ void SenderX::sendFile()
                 {
                     if (byteToReceive == NAK)
                     {
-                        cout << "Sender received Checksum byte" << std::endl;
+                        cout << "Sender received Checksum indicator" << std::endl;
                         Crcflg = false;
                         cs1stBlk();
                         firstCrcBlk = false;
+                    }
+                    else
+                    {
+                        cout << "Sender received CRC16 indicator" << std::endl;
                     }
                     sendBlkPrepNext();
                     state = S_ACKNAK;

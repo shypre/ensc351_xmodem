@@ -1,15 +1,15 @@
-23:13:55 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+12:35:44 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
 make all 
 Building file: ../src/ReceiverX.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
 Finished building: ../src/ReceiverX.cpp
  
 Building target: Ensc351Part2
 Invoking: GCC C++ Linker
-g++ -L"/mnt/hgfs/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
 Finished building target: Ensc351Part2
  
 
-23:13:56 Build Finished (took 975ms)
+12:35:45 Build Finished (took 1s.164ms)
 
