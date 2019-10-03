@@ -1,9 +1,38 @@
-12:35:44 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+14:11:36 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
 make all 
+Building file: ../src/Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ensc351Part2.d" -MT"src/Ensc351Part2.o" -o "src/Ensc351Part2.o" "../src/Ensc351Part2.cpp"
+../src/Ensc351Part2.cpp: In function ‘void termFunc(int)’:
+../src/Ensc351Part2.cpp:107:31: warning: comparison with string literal results in unspecified behaviour [-Waddress]
+         if (xSender.result != "UnexpectedC") {
+                               ^
+Finished building: ../src/Ensc351Part2.cpp
+ 
+Building file: ../src/Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Medium.d" -MT"src/Medium.o" -o "src/Medium.o" "../src/Medium.cpp"
+Finished building: ../src/Medium.cpp
+ 
+Building file: ../src/PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PeerX.d" -MT"src/PeerX.o" -o "src/PeerX.o" "../src/PeerX.cpp"
+Finished building: ../src/PeerX.cpp
+ 
 Building file: ../src/ReceiverX.cpp
 Invoking: GCC C++ Compiler
 g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
 Finished building: ../src/ReceiverX.cpp
+ 
+Building file: ../src/SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderX.d" -MT"src/SenderX.o" -o "src/SenderX.o" "../src/SenderX.cpp"
+Finished building: ../src/SenderX.cpp
+ 
+Building file: ../src/myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/myIO.d" -MT"src/myIO.o" -o "src/myIO.o" "../src/myIO.cpp"
+Finished building: ../src/myIO.cpp
  
 Building target: Ensc351Part2
 Invoking: GCC C++ Linker
@@ -11,5 +40,5 @@ g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./s
 Finished building target: Ensc351Part2
  
 
-12:35:45 Build Finished (took 1s.164ms)
+14:11:40 Build Finished (took 4s.365ms)
 
