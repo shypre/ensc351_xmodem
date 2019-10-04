@@ -1,6 +1,7 @@
-17:12:33 **** Incremental Build of configuration Debug for project Ensc351 ****
-make all 
-make: Nothing to be done for 'all'.
+17:50:05 **** Clean-only build of configuration Debug for project Ensc351 ****
+make clean 
+rm -rf  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o  ./ScopedMutex.d ./ss_api.d  ./AtomicConsole.d ./SocketReadcond.d ./VNPE.d  libEnsc351.a
+ 
 
-17:12:33 Build Finished (took 418ms)
+17:50:05 Build Finished (took 393ms)
 

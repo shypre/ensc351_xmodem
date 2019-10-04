@@ -4,27 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-../src/Ensc351Part2.cpp \
+../src/Ensc351Part2-renamed-main.cpp \
 ../src/Medium.cpp \
 ../src/PeerX.cpp \
 ../src/ReceiverX.cpp \
 ../src/SenderX.cpp \
+../src/main.cpp \
 ../src/myIO.cpp 
 
 OBJS += \
-./src/Ensc351Part2.o \
+./src/Ensc351Part2-renamed-main.o \
 ./src/Medium.o \
 ./src/PeerX.o \
 ./src/ReceiverX.o \
 ./src/SenderX.o \
+./src/main.o \
 ./src/myIO.o 
 
 CPP_DEPS += \
-./src/Ensc351Part2.d \
+./src/Ensc351Part2-renamed-main.d \
 ./src/Medium.d \
 ./src/PeerX.d \
 ./src/ReceiverX.d \
 ./src/SenderX.d \
+./src/main.d \
 ./src/myIO.d 
 
 
