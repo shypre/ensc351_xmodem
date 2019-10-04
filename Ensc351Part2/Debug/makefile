@@ -41,7 +41,7 @@ endif
 all: Ensc351Part2
 
 dependents:
-	-cd /mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug && $(MAKE) clean all
+	-cd /mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug && $(MAKE) all
 
 # Tool invocations
 Ensc351Part2: $(OBJS) $(USER_OBJS) /mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug/libEnsc351.a

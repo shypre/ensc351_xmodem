@@ -1461,3 +1461,122 @@ Invoking: GCC C++ Linker
 g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
 Finished building target: Ensc351Part2
  
+16:49:56 **** Incremental Build of configuration Debug for project Ensc351 ****
+make all 
+Building file: ../AtomicConsole.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"AtomicConsole.d" -MT"AtomicConsole.o" -o "AtomicConsole.o" "../AtomicConsole.c"
+Finished building: ../AtomicConsole.c
+ 
+Building file: ../ScopedMutex.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ScopedMutex.d" -MT"ScopedMutex.o" -o "ScopedMutex.o" "../ScopedMutex.cpp"
+Finished building: ../ScopedMutex.cpp
+ 
+Building file: ../SocketReadcond.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SocketReadcond.d" -MT"SocketReadcond.o" -o "SocketReadcond.o" "../SocketReadcond.c"
+Finished building: ../SocketReadcond.c
+ 
+Building file: ../VNPE.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"VNPE.d" -MT"VNPE.o" -o "VNPE.o" "../VNPE.c"
+Finished building: ../VNPE.c
+ 
+Building file: ../ss_api.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ss_api.d" -MT"ss_api.o" -o "ss_api.o" "../ss_api.cpp"
+Finished building: ../ss_api.cpp
+ 
+Building target: libEnsc351.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351.a"  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o   
+ar: creating libEnsc351.a
+Finished building target: libEnsc351.a
+ 
+16:50:01 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+make all 
+Building file: ../src/Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ensc351Part2.d" -MT"src/Ensc351Part2.o" -o "src/Ensc351Part2.o" "../src/Ensc351Part2.cpp"
+../src/Ensc351Part2.cpp: In function ‘void termFunc(int)’:
+../src/Ensc351Part2.cpp:107:31: warning: comparison with string literal results in unspecified behaviour [-Waddress]
+         if (xSender.result != "UnexpectedC") {
+                               ^
+Finished building: ../src/Ensc351Part2.cpp
+ 
+Building file: ../src/Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Medium.d" -MT"src/Medium.o" -o "src/Medium.o" "../src/Medium.cpp"
+Finished building: ../src/Medium.cpp
+ 
+Building file: ../src/PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/PeerX.d" -MT"src/PeerX.o" -o "src/PeerX.o" "../src/PeerX.cpp"
+Finished building: ../src/PeerX.cpp
+ 
+Building file: ../src/ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+Finished building: ../src/ReceiverX.cpp
+ 
+Building file: ../src/SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderX.d" -MT"src/SenderX.o" -o "src/SenderX.o" "../src/SenderX.cpp"
+Finished building: ../src/SenderX.cpp
+ 
+Building file: ../src/myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/myIO.d" -MT"src/myIO.o" -o "src/myIO.o" "../src/myIO.cpp"
+Finished building: ../src/myIO.cpp
+ 
+Building target: Ensc351Part2
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+Finished building target: Ensc351Part2
+ 
+16:51:09 **** Incremental Build of configuration Debug for project Ensc351 ****
+make all 
+make: Nothing to be done for 'all'.
+16:51:10 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+make all 
+Building file: ../src/ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+Finished building: ../src/ReceiverX.cpp
+ 
+Building target: Ensc351Part2
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+Finished building target: Ensc351Part2
+ 
+17:08:49 **** Incremental Build of configuration Debug for project Ensc351 ****
+make all 
+make: Nothing to be done for 'all'.
+17:08:49 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+make all 
+Building file: ../src/ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+Finished building: ../src/ReceiverX.cpp
+ 
+Building target: Ensc351Part2
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+Finished building target: Ensc351Part2
+ 
+17:12:33 **** Incremental Build of configuration Debug for project Ensc351 ****
+make all 
+make: Nothing to be done for 'all'.
+17:12:33 **** Incremental Build of configuration Debug for project Ensc351Part2 ****
+make all 
+Building file: ../src/ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverX.d" -MT"src/ReceiverX.o" -o "src/ReceiverX.o" "../src/ReceiverX.cpp"
+Finished building: ../src/ReceiverX.cpp
+ 
+Building target: Ensc351Part2
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Ensc351/Debug" -o "Ensc351Part2"  ./src/Ensc351Part2.o ./src/Medium.o ./src/PeerX.o ./src/ReceiverX.o ./src/SenderX.o ./src/myIO.o   -lEnsc351 -lpthread
+Finished building target: Ensc351Part2
+ 

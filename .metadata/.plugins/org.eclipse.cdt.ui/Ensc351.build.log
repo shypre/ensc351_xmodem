@@ -1,36 +1,6 @@
-14:11:30 **** Incremental Build of configuration Debug for project Ensc351 ****
+17:12:33 **** Incremental Build of configuration Debug for project Ensc351 ****
 make all 
-Building file: ../AtomicConsole.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"AtomicConsole.d" -MT"AtomicConsole.o" -o "AtomicConsole.o" "../AtomicConsole.c"
-Finished building: ../AtomicConsole.c
- 
-Building file: ../ScopedMutex.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ScopedMutex.d" -MT"ScopedMutex.o" -o "ScopedMutex.o" "../ScopedMutex.cpp"
-Finished building: ../ScopedMutex.cpp
- 
-Building file: ../SocketReadcond.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SocketReadcond.d" -MT"SocketReadcond.o" -o "SocketReadcond.o" "../SocketReadcond.c"
-Finished building: ../SocketReadcond.c
- 
-Building file: ../VNPE.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"VNPE.d" -MT"VNPE.o" -o "VNPE.o" "../VNPE.c"
-Finished building: ../VNPE.c
- 
-Building file: ../ss_api.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ss_api.d" -MT"ss_api.o" -o "ss_api.o" "../ss_api.cpp"
-Finished building: ../ss_api.cpp
- 
-Building target: libEnsc351.a
-Invoking: GCC Archiver
-ar -r  "libEnsc351.a"  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o   
-ar: creating libEnsc351.a
-Finished building target: libEnsc351.a
- 
+make: Nothing to be done for 'all'.
 
-14:11:35 Build Finished (took 5s.223ms)
+17:12:33 Build Finished (took 418ms)
 

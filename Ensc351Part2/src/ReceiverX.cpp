@@ -65,43 +65,19 @@ void ReceiverX::receiveFile()
 
 	uint8_t blkNum = 1;
 	goodBlk1st = false;
-	enum {S_START, S_RECV, S_VBLKNUM, S_VCS, S_VCRC, S_WRITE, S_ACK, S_NAK, S_EOT, S_CAN, S_ERROR};
+	enum {S_START, S_RECV, S_VBLKNUM, S_VCS, S_VCRC, S_WRITE, S_ACK, S_NAK, S_EOT, S_CAN, S_EXIT, S_ERROR};
 	int state = S_START;
 
 	while(true)
 	{
 	    std::cout << "Receiver current state: " << state << std::endl;
 
-	    if (state == S_ERROR)
-	    {
-	        std::cerr << "Fatal error: exiting" << std::endl;
-            exit(EXIT_FAILURE);
-	    }
-
-	    else if (state == S_START)
+	    if (state == S_START)
 	    {
 	        // inform sender that the receiver is ready and that the
 	        //      sender can send the first block
 	        sendByte(NCGbyte);
 	        state = S_RECV;
-	    }
-
-	    else if (state == S_EOT)
-	    {
-	        std::cout << "Receiver got EOT" << std::endl;
-            sendByte(NAK); // NAK the first EOT
-            PE_NOT(myRead(mediumD, rcvBlk, 1), 1);  // presumably read in another EOT
-            std::cout << "Receiver received (first) byte: " << (int)rcvBlk[0] << std::endl;
-            if (rcvBlk[0] == EOT)
-            {
-                sendByte(ACK); // ACK the second EOT
-                break;
-            }
-            else
-            {
-                result = "Receiver received totally unexpected char";
-                state = S_ERROR;
-            }
 	    }
 
 	    else if (state == S_ACK)
@@ -121,14 +97,6 @@ void ReceiverX::receiveFile()
             state = S_RECV;
         }
 
-	    else if (state == S_CAN)
-	    {
-	        can8();
-	        result = "Cancelled";
-	        std::cout << "Receiver CAN sequence sent" << std::endl;
-	        break;
-	    }
-
 	    else if (state == S_RECV)
 	    {
 	        PE_NOT(myRead(mediumD, rcvBlk, 1), 1);
@@ -147,7 +115,7 @@ void ReceiverX::receiveFile()
 	            //syncLoss = true;
 	            //goodBlk = false;
 	            //goodBlk1st = false;
-	            result = "Fatal error: SOH byte corrupt";
+	            result = "Fatal error: First byte corrupt";
 	            std::cerr << result << std::endl;
 	            //break;
 	            state = S_CAN;
@@ -194,13 +162,13 @@ void ReceiverX::receiveFile()
             uint16_t crcNum = 0;
             crc16ns(&crcNum, &rcvBlk[3]);
             bool match = !(bool)memcmp(&crcNum, &rcvBlk[3+CHUNK_SZ], 2);
-            if (!match)
+            if (match != true)
             {
                 result = "CRC does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
                 state = S_NAK;
             }
-            else if (match)
+            else if (match == true)
             {
                 state = S_WRITE;
             }
@@ -215,13 +183,13 @@ void ReceiverX::receiveFile()
                 checksum += rcvBlk[i];
             }
             bool match = (checksum == rcvBlk[3+CHUNK_SZ]);
-            if (!match)
+            if (match != true)
             {
                 result = "Checksum does not match";
                 std::cout << result << " at block: " << (int)rcvBlk[1] << std::endl;
                 state = S_NAK;
             }
-            else if (match)
+            else if (match == true)
             {
                 state = S_WRITE;
             }
@@ -236,18 +204,56 @@ void ReceiverX::receiveFile()
 	        goodBlk1st = true;
 	        state = S_RECV;
 	    }
-	}
 
-    if (close(transferringFileD) != 0)
-    {
-        // check if the file closed properly.  If not, result should be something other than "Done".
-        result = "File did not close properly";
-        std::cout << result << std::endl;
-    }
-    else
-    {
-        result = "Done"; //assume the file closed properly.
-    }
+        else if (state == S_CAN)
+        {
+            can8();
+            result = "Cancelled";
+            std::cout << "Receiver CAN sequence sent" << std::endl;
+            break;
+        }
+
+        else if (state == S_EOT)
+        {
+            std::cout << "Receiver got EOT" << std::endl;
+            sendByte(NAK); // NAK the first EOT
+            PE_NOT(myRead(mediumD, rcvBlk, 1), 1);  // presumably read in another EOT
+            std::cout << "Receiver received (first) byte: " << (int)rcvBlk[0] << std::endl;
+            if (rcvBlk[0] == EOT)
+            {
+                sendByte(ACK); // ACK the second EOT
+                state = S_EXIT;
+            }
+            else if (rcvBlk[0] != EOT)
+            {
+                result = "Receiver received totally unexpected char";
+                state = S_ERROR;
+            }
+        }
+
+        else if (state == S_ERROR)
+        {
+            std::cerr << "Fatal error: exiting" << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+	    else if (state == S_EXIT)
+	    {
+	        int closeResult = close(transferringFileD);
+	        if (closeResult != 0)
+	        {
+	            // check if the file closed properly.  If not, result should be something other than "Done".
+	            result = "File did not close properly";
+	            std::cout << result << std::endl;
+	            break;
+	        }
+	        else if (closeResult == 0)
+	        {
+	            result = "Done"; //assume the file closed properly.
+                break;
+	        }
+	    }
+	}
 }
 
 /* Only called after an SOH character has been received.
