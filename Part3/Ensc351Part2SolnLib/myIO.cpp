@@ -36,6 +36,10 @@
 #include <fcntl.h>			// for open/creat
 #include <sys/socket.h> 		// for socketpair
 #include "SocketReadcond.h"
+#include <vector>
+#include <mutex>
+#include <thread>
+
 
 int mySocketpair( int domain, int type, int protocol, int des[2] )
 {
@@ -70,6 +74,7 @@ int myClose( int fd )
 
 int myTcdrain(int des)
 { //is also included for purposes of the course.
+
 	return 0;
 }
 
