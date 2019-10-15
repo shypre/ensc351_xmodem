@@ -39,7 +39,20 @@
 #include <vector>
 #include <mutex>
 #include <thread>
+#include <condition_variable>
+#include <unordered_set>
 
+std::unordered_set<int> file_des_list;
+
+struct my_des_lock
+{
+    int file_des;
+    std::mutex my_mutex;
+    std::condition_variable my_cond;
+    std::lock_guard my_lock_guard;
+};
+
+int myReadcond(int des, void * buf, int n, int min, int time, int timeout);
 
 int mySocketpair( int domain, int type, int protocol, int des[2] )
 {
@@ -49,26 +62,50 @@ int mySocketpair( int domain, int type, int protocol, int des[2] )
 
 int myOpen(const char *pathname, int flags, mode_t mode)
 {
-	return open(pathname, flags, mode);
+    int file_des = open(pathname, flags, mode);
+    file_des_list.insert(file_des);
+	return file_des;
 }
 
 int myCreat(const char *pathname, mode_t mode)
 {
-	return creat(pathname, mode);
+    int file_des = creat(pathname, mode);
+    file_des_list.insert(file_des);
+    return file_des;
 }
 
+ssize_t myRead( int des, void* buf, size_t nbyte )
+{
+    // file and socket descriptors won't collide: https://stackoverflow.com/questions/13378035/socket-and-file-descriptors
+    // ... deal with reading from descriptors for files
+    if (file_des_list.find(des) != file_des_list.end())
+    {
+        return read(des, buf, nbyte );
+    }
+    // myRead (for our socketpairs) reads a minimum of 1 byte
+    else
+    {
+        return myReadcond(des, buf, nbyte, 1, 0, 0);
+    }
+}
+
+/*
 ssize_t myRead( int fildes, void* buf, size_t nbyte )
 {
 	return read(fildes, buf, nbyte );
 }
+*/
 
 ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 {
+
 	return write(fildes, buf, nbyte );
 }
 
 int myClose( int fd )
 {
+
+    file_des_list.erase(fd);
 	return close(fd);
 }
 
