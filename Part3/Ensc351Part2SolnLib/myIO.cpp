@@ -40,37 +40,99 @@
 #include <mutex>
 #include <thread>
 #include <condition_variable>
-#include <unordered_set>
+//debug
+#include <iostream>
 
-std::unordered_set<int> file_des_list;
-
-struct my_des_lock
+struct sock_des_lock
 {
-    int file_des;
+    int sock_des;
+    int sock_des_pair;
     std::mutex my_mutex;
     std::condition_variable my_cond;
-    std::lock_guard my_lock_guard;
+    int buffered_bytes;
+    sock_des_lock(int new_sock_des = -1, int new_sock_des_pair = -1)
+    {
+        sock_des = new_sock_des;
+        sock_des_pair = new_sock_des_pair;
+        buffered_bytes = 0;
+    }
 };
 
+struct sock_des_list
+{
+    std::vector<sock_des_lock> sock_des_lock_list;
+    int contains(int des)
+    {
+        for (int i = 0; i < sock_des_lock_list.size(); ++i)
+        {
+            if (sock_des_lock_list[i].sock_des == des || sock_des_lock_list[i].sock_des_pair == des)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    sock_des_lock* object_with(int des)
+    {
+        int pos = contains(des);
+        if (pos != -1)
+        {
+            return &sock_des_lock_list[pos];
+        }
+        return nullptr;
+    }
+    bool insert(int des, int des_pair)
+    {
+        int pos = contains(des);
+        if (pos == -1)
+        {
+            sock_des_lock_list.push_back(sock_des_lock(des, des_pair));
+            return true;
+        }
+        return false;
+    }
+    bool remove(int des)
+    {
+        int pos = contains(des);
+        if (pos != -1)
+        {
+            sock_des_lock_list.erase(sock_des_lock_list.begin() + pos);
+            return true;
+        }
+        return false;
+    }
+};
+
+sock_des_list my_sock_des_list;
+
+//forward declaration for implementation below
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout);
 
 int mySocketpair( int domain, int type, int protocol, int des[2] )
 {
 	int returnVal = socketpair(domain, type, protocol, des);
+	if (returnVal != 0)
+	{
+	    std::cerr << "Socket pair creation failed" << std::endl;
+	}
+	else
+	{
+	    my_sock_des_list.insert(des[0], des[1]);
+	}
 	return returnVal;
 }
 
 int myOpen(const char *pathname, int flags, mode_t mode)
 {
     int file_des = open(pathname, flags, mode);
-    file_des_list.insert(file_des);
+    //sock_des_list.insert(file_des);
 	return file_des;
 }
 
 int myCreat(const char *pathname, mode_t mode)
 {
     int file_des = creat(pathname, mode);
-    file_des_list.insert(file_des);
+    //sock_des_list.insert(file_des);
     return file_des;
 }
 
@@ -78,11 +140,12 @@ ssize_t myRead( int des, void* buf, size_t nbyte )
 {
     // file and socket descriptors won't collide: https://stackoverflow.com/questions/13378035/socket-and-file-descriptors
     // ... deal with reading from descriptors for files
-    if (file_des_list.find(des) != file_des_list.end())
+    if (my_sock_des_list.contains(des) == -1)
     {
         return read(des, buf, nbyte );
     }
     // myRead (for our socketpairs) reads a minimum of 1 byte
+    //otherwise it must be a socket
     else
     {
         return myReadcond(des, buf, nbyte, 1, 0, 0);
@@ -98,17 +161,29 @@ ssize_t myRead( int fildes, void* buf, size_t nbyte )
 
 ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 {
+    sock_des_lock* my_sock = my_sock_des_list.object_with(fildes);
+    //should never happen
+    if (my_sock == nullptr)
+    {
+        std::cerr << "Descriptor " << fildes << " does not exist" << std::endl;
+    }
+    std::unique_lock<std::mutex> my_lock(my_sock->my_mutex);
 
-	return write(fildes, buf, nbyte );
+    int bytes_written = write(fildes, buf, nbyte );
+    my_sock_des_list.object_with(fildes)->buffered_bytes += bytes_written;
+
+    my_lock.unlock();
+	return bytes_written;
 }
 
 int myClose( int fd )
 {
 
-    file_des_list.erase(fd);
+    my_sock_des_list.remove(fd);
 	return close(fd);
 }
 
+//blocks thread that just wrote data into a socket until all data that it wrote is read out by the other end
 int myTcdrain(int des)
 { //is also included for purposes of the course.
 
@@ -121,6 +196,8 @@ int myTcdrain(int des)
  *  */
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
 {
-	return wcsReadcond(des, buf, n, min, time, timeout );
+    int bytes_read = wcsReadcond(des, buf, n, min, time, timeout );
+
+	return bytes_read;
 }
 
