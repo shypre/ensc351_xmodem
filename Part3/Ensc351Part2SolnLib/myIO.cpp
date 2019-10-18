@@ -43,71 +43,82 @@
 //debug
 #include <iostream>
 
-struct sock_des_lock
+struct file_des_lock
 {
-    int sock_des;
-    int sock_des_pair;
+    int file_des;
+    int file_des_pair;
     std::mutex my_mutex;
     std::condition_variable my_cond;
     int buffered_bytes;
-    sock_des_lock(int new_sock_des = -1, int new_sock_des_pair = -1)
+    bool is_socket;
+    file_des_lock(int new_file_des, int new_file_des_pair, bool is_socket)
     {
-        sock_des = new_sock_des;
-        sock_des_pair = new_sock_des_pair;
+        file_des = new_file_des;
+        file_des_pair = new_file_des_pair;
         buffered_bytes = 0;
+        this->is_socket = is_socket;
+    }
+    bool buffer_is_empty()
+    {
+        return buffered_bytes == 0;
     }
 };
 
-struct sock_des_list
+struct file_des_list
 {
-    std::vector<sock_des_lock> sock_des_lock_list;
+    std::vector<file_des_lock*> file_des_lock_list;
+    std::mutex list_mutex;
     int contains(int des)
     {
-        for (int i = 0; i < sock_des_lock_list.size(); ++i)
+        for (int i = 0; i < file_des_lock_list.size(); ++i)
         {
-            if (sock_des_lock_list[i].sock_des == des || sock_des_lock_list[i].sock_des_pair == des)
+            if (file_des_lock_list[i]->file_des == des)
             {
                 return i;
             }
         }
         return -1;
     }
-    sock_des_lock* object_with(int des)
+    file_des_lock* object_with(int des)
     {
+        std::lock_guard<std::mutex> my_lock(list_mutex);
         int pos = contains(des);
         if (pos != -1)
         {
-            return &sock_des_lock_list[pos];
+            return file_des_lock_list[pos];
         }
         return nullptr;
     }
-    bool insert(int des, int des_pair)
+    bool insert(int des, int des_pair, bool is_socket)
     {
+        std::lock_guard<std::mutex> my_lock(list_mutex);
         int pos = contains(des);
         if (pos == -1)
         {
-            sock_des_lock_list.push_back(sock_des_lock(des, des_pair));
+            file_des_lock_list.push_back(new file_des_lock(des, des_pair, is_socket));
             return true;
         }
         return false;
     }
     bool remove(int des)
     {
+        std::lock_guard<std::mutex> my_lock(list_mutex);
         int pos = contains(des);
         if (pos != -1)
         {
-            sock_des_lock_list.erase(sock_des_lock_list.begin() + pos);
+            file_des_lock_list.erase(file_des_lock_list.begin() + pos);
             return true;
         }
         return false;
     }
 };
 
-sock_des_list my_sock_des_list;
+file_des_list my_file_des_list;
 
 //forward declaration for implementation below
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout);
 
+//create socketpair between term and medium
 int mySocketpair( int domain, int type, int protocol, int des[2] )
 {
 	int returnVal = socketpair(domain, type, protocol, des);
@@ -117,22 +128,25 @@ int mySocketpair( int domain, int type, int protocol, int des[2] )
 	}
 	else
 	{
-	    my_sock_des_list.insert(des[0], des[1]);
+	    my_file_des_list.insert(des[0], des[1], true);
+	    my_file_des_list.insert(des[1], des[0], true);
 	}
 	return returnVal;
 }
 
+//opens a file from filesystem
 int myOpen(const char *pathname, int flags, mode_t mode)
 {
     int file_des = open(pathname, flags, mode);
-    //sock_des_list.insert(file_des);
+    my_file_des_list.insert(file_des, -1, false);
 	return file_des;
 }
 
+//create a file on filesystem
 int myCreat(const char *pathname, mode_t mode)
 {
     int file_des = creat(pathname, mode);
-    //sock_des_list.insert(file_des);
+    my_file_des_list.insert(file_des, -1, false);
     return file_des;
 }
 
@@ -140,7 +154,8 @@ ssize_t myRead( int des, void* buf, size_t nbyte )
 {
     // file and socket descriptors won't collide: https://stackoverflow.com/questions/13378035/socket-and-file-descriptors
     // ... deal with reading from descriptors for files
-    if (my_sock_des_list.contains(des) == -1)
+    file_des_lock* file_des_obj = my_file_des_list.object_with(des);
+    if (file_des_obj->is_socket == false)
     {
         return read(des, buf, nbyte );
     }
@@ -161,7 +176,7 @@ ssize_t myRead( int fildes, void* buf, size_t nbyte )
 
 ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 {
-    sock_des_lock* my_sock = my_sock_des_list.object_with(fildes);
+    file_des_lock* my_sock = my_file_des_list.object_with(fildes);
     //should never happen
     if (my_sock == nullptr)
     {
@@ -170,7 +185,11 @@ ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
     std::unique_lock<std::mutex> my_lock(my_sock->my_mutex);
 
     int bytes_written = write(fildes, buf, nbyte );
-    my_sock_des_list.object_with(fildes)->buffered_bytes += bytes_written;
+
+    if (my_sock->is_socket == true)
+    {
+        my_sock->buffered_bytes += bytes_written;
+    }
 
     my_lock.unlock();
 	return bytes_written;
@@ -178,15 +197,20 @@ ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 
 int myClose( int fd )
 {
-
-    my_sock_des_list.remove(fd);
-	return close(fd);
+    int result = close(fd);
+    if (result != -1)
+    {
+        my_file_des_list.remove(fd);
+    }
+	return result;
 }
 
 //blocks thread that just wrote data into a socket until all data that it wrote is read out by the other end
 int myTcdrain(int des)
 { //is also included for purposes of the course.
-
+    file_des_lock* file_des_obj = my_file_des_list.object_with(des);
+    std::unique_lock<std::mutex> my_lock(file_des_obj->my_mutex);
+    file_des_obj->my_cond.wait(my_lock, [file_des_obj]{return file_des_obj->buffer_is_empty();});
 	return 0;
 }
 
@@ -196,7 +220,15 @@ int myTcdrain(int des)
  *  */
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
 {
+    file_des_lock* file_des_obj = my_file_des_list.object_with(des);
+    file_des_lock* file_des_obj_pair = my_file_des_list.object_with(file_des_obj->file_des_pair);
+    std::unique_lock<std::mutex> my_lock(file_des_obj_pair->my_mutex, std::defer_lock);
+
     int bytes_read = wcsReadcond(des, buf, n, min, time, timeout );
+    my_lock.lock();
+    file_des_obj->buffered_bytes -= bytes_read;
+
+    file_des_obj_pair->my_cond.notify_one();
 
 	return bytes_read;
 }
