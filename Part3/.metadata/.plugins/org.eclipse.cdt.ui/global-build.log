@@ -557,3 +557,990 @@ make: Nothing to be done for 'all'.
 19:49:55 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
 make all 
 make: Nothing to be done for 'all'.
+12:08:38 **** Clean-only build of configuration Debug for project Ensc351 ****
+make clean 
+rm -rf  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o  ./ScopedMutex.d ./ss_api.d  ./AtomicConsole.d ./SocketReadcond.d ./VNPE.d  libEnsc351.a
+ 
+12:08:39 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+ 
+12:08:39 **** Clean-only build of configuration Debug for project Ensc351Part2SolnLib ****
+make clean 
+rm -rf  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o  ./Ensc351Part2.d ./Medium.d ./PeerX.d ./ReceiverX.d ./SenderX.d ./main.d ./myIO.d  libEnsc351Part2SolnLib.a
+ 
+12:08:39 **** Build of configuration Debug for project Ensc351 ****
+make all 
+Building file: ../AtomicConsole.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"AtomicConsole.d" -MT"AtomicConsole.o" -o "AtomicConsole.o" "../AtomicConsole.c"
+Finished building: ../AtomicConsole.c
+ 
+Building file: ../ScopedMutex.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ScopedMutex.d" -MT"ScopedMutex.o" -o "ScopedMutex.o" "../ScopedMutex.cpp"
+Finished building: ../ScopedMutex.cpp
+ 
+Building file: ../SocketReadcond.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SocketReadcond.d" -MT"SocketReadcond.o" -o "SocketReadcond.o" "../SocketReadcond.c"
+Finished building: ../SocketReadcond.c
+ 
+Building file: ../VNPE.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"VNPE.d" -MT"VNPE.o" -o "VNPE.o" "../VNPE.c"
+Finished building: ../VNPE.c
+ 
+Building file: ../ss_api.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ss_api.d" -MT"ss_api.o" -o "ss_api.o" "../ss_api.cpp"
+Finished building: ../ss_api.cpp
+ 
+Building target: libEnsc351.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351.a"  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o   
+ar: creating libEnsc351.a
+Finished building target: libEnsc351.a
+ 
+12:08:41 **** Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Ensc351Part2.d" -MT"Ensc351Part2.o" -o "Ensc351Part2.o" "../Ensc351Part2.cpp"
+Finished building: ../Ensc351Part2.cpp
+ 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+../ReceiverX.cpp:14:24: fatal error: ReceiverSS.h: No such file or directory
+subdir.mk:36: recipe for target 'ReceiverX.o' failed
+ #include "ReceiverSS.h"
+                        ^
+compilation terminated.
+make: *** [ReceiverX.o] Error 1
+12:08:43 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+/usr/bin/ld: cannot find -lEnsc351Part2SolnLib
+collect2: error: ld returned 1 exit status
+make: *** [Ensc351Part2HandCoded] Error 1
+makefile:48: recipe for target 'Ensc351Part2HandCoded' failed
+12:10:27 **** Clean-only build of configuration Debug for project Ensc351 ****
+make clean 
+rm -rf  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o  ./ScopedMutex.d ./ss_api.d  ./AtomicConsole.d ./SocketReadcond.d ./VNPE.d  libEnsc351.a
+ 
+12:10:27 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+ 
+12:10:28 **** Clean-only build of configuration Debug for project Ensc351Part2SolnLib ****
+make clean 
+rm -rf  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o  ./Ensc351Part2.d ./Medium.d ./PeerX.d ./ReceiverX.d ./SenderX.d ./main.d ./myIO.d  libEnsc351Part2SolnLib.a
+ 
+12:10:28 **** Build of configuration Debug for project Ensc351 ****
+make all 
+Building file: ../AtomicConsole.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"AtomicConsole.d" -MT"AtomicConsole.o" -o "AtomicConsole.o" "../AtomicConsole.c"
+Finished building: ../AtomicConsole.c
+ 
+Building file: ../ScopedMutex.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ScopedMutex.d" -MT"ScopedMutex.o" -o "ScopedMutex.o" "../ScopedMutex.cpp"
+Finished building: ../ScopedMutex.cpp
+ 
+Building file: ../SocketReadcond.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SocketReadcond.d" -MT"SocketReadcond.o" -o "SocketReadcond.o" "../SocketReadcond.c"
+Finished building: ../SocketReadcond.c
+ 
+Building file: ../VNPE.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"VNPE.d" -MT"VNPE.o" -o "VNPE.o" "../VNPE.c"
+Finished building: ../VNPE.c
+ 
+Building file: ../ss_api.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ss_api.d" -MT"ss_api.o" -o "ss_api.o" "../ss_api.cpp"
+Finished building: ../ss_api.cpp
+ 
+Building target: libEnsc351.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351.a"  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o   
+ar: creating libEnsc351.a
+Finished building target: libEnsc351.a
+ 
+12:10:30 **** Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Ensc351Part2.d" -MT"Ensc351Part2.o" -o "Ensc351Part2.o" "../Ensc351Part2.cpp"
+Finished building: ../Ensc351Part2.cpp
+ 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:73:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+ar: creating libEnsc351Part2SolnLib.a
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:10:34 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+12:13:04 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+12:13:05 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+12:31:56 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+ 
+12:31:56 **** Incremental Build of configuration Debug for project Ensc351 ****
+make all 
+make: Nothing to be done for 'all'.
+12:31:56 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:31:58 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+12:32:02 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+12:32:03 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+12:41:44 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:74:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:41:46 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+12:56:23 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:74:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:56:25 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+12:57:20 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:57:21 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+12:59:57 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+12:59:58 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:04:07 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:75:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:04:08 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:07:04 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:75:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:07:05 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:15:33 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:75:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:15:34 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:19:22 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:19:23 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:26:49 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:26:50 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:36:27 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:36:29 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:37:17 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:37:18 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:40:43 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:40:44 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+14:55:06 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+14:55:07 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:02:19 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:02:20 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:03:10 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:03:11 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:03:16 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:17 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:35 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+15:03:36 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+15:05:08 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:05:09 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:18:41 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:18:42 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:28:05 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:28:06 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:45:59 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:46:01 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+15:47:07 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+15:47:09 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:04:21 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:04:24 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:04:46 **** Clean-only build of configuration Debug for project Ensc351 ****
+make clean 
+rm -rf  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o  ./ScopedMutex.d ./ss_api.d  ./AtomicConsole.d ./SocketReadcond.d ./VNPE.d  libEnsc351.a
+ 
+16:04:46 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+ 
+16:04:47 **** Clean-only build of configuration Debug for project Ensc351Part2SolnLib ****
+make clean 
+rm -rf  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o  ./Ensc351Part2.d ./Medium.d ./PeerX.d ./ReceiverX.d ./SenderX.d ./main.d ./myIO.d  libEnsc351Part2SolnLib.a
+ 
+16:04:47 **** Build of configuration Debug for project Ensc351 ****
+make all 
+Building file: ../AtomicConsole.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"AtomicConsole.d" -MT"AtomicConsole.o" -o "AtomicConsole.o" "../AtomicConsole.c"
+Finished building: ../AtomicConsole.c
+ 
+Building file: ../ScopedMutex.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ScopedMutex.d" -MT"ScopedMutex.o" -o "ScopedMutex.o" "../ScopedMutex.cpp"
+Finished building: ../ScopedMutex.cpp
+ 
+Building file: ../SocketReadcond.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SocketReadcond.d" -MT"SocketReadcond.o" -o "SocketReadcond.o" "../SocketReadcond.c"
+Finished building: ../SocketReadcond.c
+ 
+Building file: ../VNPE.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"VNPE.d" -MT"VNPE.o" -o "VNPE.o" "../VNPE.c"
+Finished building: ../VNPE.c
+ 
+Building file: ../ss_api.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ss_api.d" -MT"ss_api.o" -o "ss_api.o" "../ss_api.cpp"
+Finished building: ../ss_api.cpp
+ 
+Building target: libEnsc351.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351.a"  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o   
+ar: creating libEnsc351.a
+Finished building target: libEnsc351.a
+ 
+16:04:48 **** Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Ensc351Part2.d" -MT"Ensc351Part2.o" -o "Ensc351Part2.o" "../Ensc351Part2.cpp"
+Finished building: ../Ensc351Part2.cpp
+ 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+ar: creating libEnsc351Part2SolnLib.a
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:04:53 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:05:06 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:05:06 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+16:25:12 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:76:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:25:13 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:34:29 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:79:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:34:30 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:39:45 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:81:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:39:46 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:39:59 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:00 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:08 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:40:08 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+16:42:52 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:120:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+16:42:53 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 

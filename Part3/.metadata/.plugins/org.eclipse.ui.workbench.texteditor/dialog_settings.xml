@@ -2,18 +2,30 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="file_des_obj" key="selection"/>
+		<item value="COUT" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="sock_obj"/>
-			<item value="sock_des"/>
-			<item value="myreadcond"/>
+			<item value="cout"/>
+			<item value="myRead"/>
+			<item value="my"/>
 			<item value="mywrite"/>
+			<item value="myread"/>
+			<item value="read"/>
+			<item value="sendByte"/>
+			<item value="write"/>
+			<item value="myWrite"/>
+			<item value="tcdrain"/>
+			<item value="mywrite to term"/>
+			<item value="logfile"/>
+			<item value="myCreat"/>
+			<item value="mycreat"/>
+			<item value="ReceiverX"/>
 		</list>
 		<list key="replacehistory">
+			<item value="COUT"/>
 			<item value="file_des_obj"/>
 			<item value="file_des"/>
 		</list>
@@ -22,7 +34,7 @@
 		<item value="316" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="390" key="DIALOG_HEIGHT"/>
-		<item value="803" key="DIALOG_X_ORIGIN"/>
-		<item value="220" key="DIALOG_Y_ORIGIN"/>
+		<item value="1380" key="DIALOG_X_ORIGIN"/>
+		<item value="250" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

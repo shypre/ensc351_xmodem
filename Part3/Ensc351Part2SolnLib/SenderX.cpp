@@ -58,6 +58,8 @@ SenderX::SenderX(const char *fname, int d)
  firstCrcBlk(true),
  blkNum(0)  	// but first block sent will be block #1, not #0
 {
+    //debug
+    COUT << "SenderX created" << endl;
 }
 
 //-----------------------------------------------------------------------------
@@ -69,7 +71,10 @@ SenderX::SenderX(const char *fname, int d)
 uint8_t SenderX::sendMostBlk(uint8_t blkBuf[BLK_SZ_CRC])
 {
 	const int mostBlockSize = (this->Crcflg ? BLK_SZ_CRC : BLK_SZ_CS) - 1;
-	PE_NOT(myWrite(mediumD, blkBuf, mostBlockSize), mostBlockSize);
+	//debug
+	int bytes_sent = myWrite(mediumD, blkBuf, mostBlockSize);
+	COUT << "Sender: sendMostBlk: sent " << bytes_sent << endl;
+	PE_NOT(bytes_sent, mostBlockSize);
 	return *(blkBuf + mostBlockSize);
 }
 
@@ -78,10 +83,14 @@ void
 SenderX::
 sendLastByte(uint8_t lastByte)
 {
+    //debug
+    COUT << "Sender: myTcdrain()" << endl;
 	PE(myTcdrain(mediumD)); // wait for previous part of block to be completely drained from the descriptor
 	dumpGlitches();			// dump any received glitches
 
-	PE_NOT(myWrite(mediumD, &lastByte, sizeof(lastByte)), sizeof(lastByte));
+    COUT << "Sender: myWrite(): " << mediumD << endl;
+	int bytes_sent = PE_NOT(myWrite(mediumD, &lastByte, sizeof(lastByte)), sizeof(lastByte));
+	COUT << "Sender: sendLastByte: sent bytes: " << bytes_sent << endl;
 }
 
 /* tries to generate a block.  Updates the
@@ -95,7 +104,10 @@ void SenderX::genBlk(blkT blkBuf)
 //void SenderX::genBlk(uint8_t blkBuf[BLK_SZ_CRC])
 {
 	//read data and store it directly at the data portion of the buffer
+    //debug
+    COUT << "Sender: genBlk: myRead()" << endl;
 	bytesRd = PE(myRead(transferringFileD, &blkBuf[DATA_POS], CHUNK_SZ ));
+    COUT << "Sender: genBlk: read bytes: " << bytesRd << endl;
 	if (bytesRd>0) {
 		blkBuf[0] = SOH; // can be pre-initialized for efficiency
 		//block number and its complement
@@ -185,6 +197,8 @@ void SenderX::resendBlk()
 //  between the pairs of CAN characters.
 void SenderX::can8()
 {
+    //debug
+    COUT << "Sender: can8() " << mediumD << endl;
 	const int canBurst=2;
     char buffer[canBurst];
     memset( buffer, CAN, canBurst);
@@ -215,7 +229,10 @@ void SenderX::sendFile()
 		//	we are not expecting a separate class as has been done here.
 		while(mySenderSmSp->isRunning()) {
 			unsigned char byteToReceive;
+			//debug
+			COUT << "SenderX: sendFile: myRead(one byte)" << endl;
 			PE_NOT(myRead(mediumD, &byteToReceive, 1), 1);
+            COUT << "SenderX: sendFile: received byte(int): " << (int)byteToReceive << endl;
 			mySenderSmSp->postEvent(SER, byteToReceive);
 		}
 

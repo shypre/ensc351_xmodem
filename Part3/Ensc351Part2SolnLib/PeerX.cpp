@@ -8,6 +8,8 @@
 #include "PeerX.h"
 #include "VNPE.h"
 #include "myIO.h"
+//debug
+#include <iostream>
 
 uint16_t my_htons(uint16_t n)
 {
@@ -116,6 +118,8 @@ void
 PeerX::
 sendByte(uint8_t byte)
 {
+    //debug
+    std::cout << "Peer: sendByte(): " << mediumD << ", byte:(int): " << (int)byte << std::endl;
 	PE_NOT(myWrite(mediumD, &byte, sizeof(byte)), sizeof(byte));
 }
 
@@ -127,6 +131,8 @@ dumpGlitches()
 	const int dumpBufSz = 20;
 	char buf[dumpBufSz];
 	int bytesRead;
+    //debug
+    std::cout << "Peer: dumpGlitches(): " << mediumD << ", bytes(oneshot): " << dumpBufSz << std::endl;
 	while (dumpBufSz == (bytesRead = PE(myReadcond(mediumD, buf, dumpBufSz, 0, 0, 0))));
 }
 

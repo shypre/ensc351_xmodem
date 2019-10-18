@@ -28,6 +28,8 @@ syncLoss(true), // better to initialize to false
 numLastGoodBlk(0),
 firstBlock(true)
 {
+    //debug
+    COUT << "ReceiverX created" << endl;
 }
 
 void ReceiverX::receiveFile()
@@ -43,7 +45,10 @@ void ReceiverX::receiveFile()
 	//	we are not expecting a separate class as has been done here.
 	while(myReceiverSmSp->isRunning()) {
 		unsigned char byteToReceive;
+        COUT << "Receiver: myRead(): " << mediumD << endl;
 		PE(myRead(mediumD, &byteToReceive, 1));
+	    //debug
+	    COUT << "Receiver: received byte(int): " << (int)byteToReceive << endl;
 		myReceiverSmSp->postEvent(SER, byteToReceive);
 	}
 
@@ -61,7 +66,11 @@ Member variables goodBlk and syncLoss, from header file, should also be updated.
 void ReceiverX::getRestBlk()
 {
 	const int restBlkSz = Crcflg ? REST_BLK_SZ_CRC : REST_BLK_SZ_CS;
-	PE_NOT(myReadcond(mediumD, &rcvBlk[1], restBlkSz, restBlkSz, 0, 0), restBlkSz);
+    COUT << "Receiver: myReadcond():" << mediumD << endl;
+	int bytes_rd = myReadcond(mediumD, &rcvBlk[1], restBlkSz, restBlkSz, 0, 0);
+	//debug
+	COUT << "Receiver: getRestBlk: bytes_rd:" << bytes_rd << endl;
+	PE_NOT(bytes_rd, restBlkSz);
 	// consider receiving checksum/CRC after calculating local checksum/CRC
 
 	syncLoss = false; // but might be made true below
@@ -123,6 +132,8 @@ void ReceiverX::getRestBlk()
 //Write chunk (data) in a received block to disk
 void ReceiverX::writeChunk()
 {
+    //debug
+    COUT << "Receiver: writeChunk()" << endl;
 	PE_NOT(myWrite(transferringFileD, &rcvBlk[DATA_POS], CHUNK_SZ), CHUNK_SZ);
 }
 
@@ -140,5 +151,7 @@ void ReceiverX::can8()
 	// no need to space in time CAN chars coming from receiver
     char buffer[CAN_LEN];
     memset( buffer, CAN, CAN_LEN);
+    //debug
+    cout << "Receiver: can8() " << mediumD << endl;
     PE_NOT(myWrite(mediumD, buffer, CAN_LEN), CAN_LEN);
 }

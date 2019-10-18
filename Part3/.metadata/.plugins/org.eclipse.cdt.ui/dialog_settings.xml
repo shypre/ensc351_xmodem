@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item value="&quot;${workspace_loc:/Ensc351Part2HandCoded/src}&quot;" key="org.eclipse.cdt.utils.ui.controls.FileListControl"/>
 	<item value="429" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x"/>
 	<item value="681" key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y"/>
 	<item value="0" key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node"/>
@@ -14,8 +15,12 @@
 		<item value="false" key="caseSensitive"/>
 		<item value="227191" key="searchFlags"/>
 		<list key="previousPatterns">
+			<item value="logfile"/>
 			<item value="myreadcond"/>
 		</list>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="0" key="askReindex.detail"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>
