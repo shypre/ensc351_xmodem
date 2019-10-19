@@ -42,7 +42,6 @@
 #include <condition_variable>
 //debug
 #include <iostream>
-#include <thread>
 
 
 struct file_des_lock
@@ -145,7 +144,6 @@ int mySocketpair( int domain, int type, int protocol, int des[2] )
 	}
 	else
 	{
-	    //std::lock_guard<std::mutex> my_lg(file_des_list_mutex);
 	    my_file_des_list.insert(des[0], des[1], true);
 	    my_file_des_list.insert(des[1], des[0], true);
 	}
@@ -156,7 +154,6 @@ int mySocketpair( int domain, int type, int protocol, int des[2] )
 int myOpen(const char *pathname, int flags, mode_t mode)
 {
     int file_des = open(pathname, flags, mode);
-    //std::lock_guard<std::mutex> my_lg(file_des_list_mutex);
     my_file_des_list.insert(file_des, -1, false);
 	return file_des;
 }
@@ -165,7 +162,6 @@ int myOpen(const char *pathname, int flags, mode_t mode)
 int myCreat(const char *pathname, mode_t mode)
 {
     int file_des = creat(pathname, mode);
-    //std::lock_guard<std::mutex> my_lg(file_des_list_mutex);
     my_file_des_list.insert(file_des, -1, false);
     return file_des;
 }
@@ -176,6 +172,11 @@ ssize_t myRead( int des, void* buf, size_t nbyte )
     // ... deal with reading from descriptors for files
     //should never be null
     file_des_lock* file_des_obj = my_file_des_list.object_with(des);
+    if (file_des_obj == nullptr)
+    {
+        std::cerr << "Invalid descriptor: " << des << std::endl;
+        return -1;
+    }
     if (file_des_obj->is_socket == false)
     {
         std::lock_guard<std::mutex> my_lg(file_des_obj->my_mutex);
@@ -240,6 +241,7 @@ int myClose( int fd )
         //std::cout << "myIO: myClose: fd: " << fd << ", fd_pair: " << my_fd->file_des_pair << std::endl;
         if (my_fd_pair != nullptr)
         {
+            //unlock other side of socketpair so that it can exit from Tcdrain and be closed too
             my_fd_pair->buffered_bytes = 0;
             my_fd_pair->my_cond.notify_one();
         }
@@ -248,7 +250,7 @@ int myClose( int fd )
 	return result;
 }
 
-//blocks thread that just wrote data into a socket until all data that it wrote is read out by the other end
+//blocks thread until all data that it wrote is read out by the other end
 int myTcdrain(int des)
 { //is also included for purposes of the course.
     //debug
@@ -265,8 +267,7 @@ int myTcdrain(int des)
  *  */
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
 {
-
-    //potentially blocking version, if there's anything to be read, have to read and then immediately return to subtract from buffered_bytes, otherwise deadlock
+    //potentially blocking version
     int iteration = 0;
     int bytes_read = 0;
     int bytes_left_to_read = n;
@@ -286,7 +287,7 @@ int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
         //error in wcReadcond
         if (bytes_read == -1)
         {
-            return total_bytes_read;
+            return total_bytes_read ? total_bytes_read : -1;
         }
 
         total_bytes_read += bytes_read;
@@ -310,7 +311,7 @@ int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
             return total_bytes_read;
         }
 
-        std::lock_guard<std::mutex> my_pair_lock(file_des_obj_pair->my_mutex);
+        std::unique_lock<std::mutex> my_pair_lock(file_des_obj_pair->my_mutex);
         file_des_obj_pair->buffered_bytes -= bytes_read;
         std::cout << "myIO: myReadcond: buffered_bytes: " << file_des_obj_pair->buffered_bytes << std::endl;
 
@@ -319,6 +320,7 @@ int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
             std::cout << "myIO: myReadcond: notify_one() " << file_des_obj_pair->file_des << std::endl;
             file_des_obj_pair->my_cond.notify_one();
         }
+        my_pair_lock.unlock();
 
         if (total_bytes_read >= min || bytes_left_to_read <= 0)
         {

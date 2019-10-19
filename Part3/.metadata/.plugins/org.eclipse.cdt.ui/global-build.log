@@ -3532,3 +3532,52 @@ make: Nothing to be done for 'all'.
 19:20:08 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
 make all 
 make: Nothing to be done for 'all'.
+19:36:43 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:119:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+Finished building target: libEnsc351Part2SolnLib.a
+ 
+19:36:44 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+19:39:07 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+19:39:07 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+make: Nothing to be done for 'all'.
+19:39:16 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+19:39:16 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+make all 
+Building target: Ensc351Part2CodedBySmartState
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2CodedBySmartState
+ 
+19:44:54 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+19:44:55 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
+make all 
+Building target: Ensc351Part3-test
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -o "Ensc351Part3-test"  ./src/Ensc351Part3-test.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part3-test
+ 
