@@ -1,6 +1,20 @@
-19:49:55 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+19:19:44 **** Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2CodedBySmartState
+Invoking: GCC C++ Linker
+g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2CodedBySmartState
+ 
 
-19:49:56 Build Finished (took 392ms)
+19:19:46 Build Finished (took 2s.106ms)
 

@@ -1,19 +1,6 @@
-16:42:52 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+19:20:08 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:120:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-Finished building: ../myIO.cpp
- 
-Building target: libEnsc351Part2SolnLib.a
-Invoking: GCC Archiver
-ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
-Finished building target: libEnsc351Part2SolnLib.a
- 
+make: Nothing to be done for 'all'.
 
-16:42:53 Build Finished (took 1s.239ms)
+19:20:08 Build Finished (took 390ms)
 

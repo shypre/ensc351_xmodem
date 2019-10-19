@@ -1,4 +1,4 @@
-16:04:47 **** Build of configuration Debug for project Ensc351 ****
+19:19:37 **** Build of configuration Debug for project Ensc351 ****
 make all 
 Building file: ../AtomicConsole.c
 Invoking: GCC C Compiler
@@ -32,5 +32,5 @@ ar: creating libEnsc351.a
 Finished building target: libEnsc351.a
  
 
-16:04:48 Build Finished (took 1s.338ms)
+19:19:38 Build Finished (took 1s.400ms)
 

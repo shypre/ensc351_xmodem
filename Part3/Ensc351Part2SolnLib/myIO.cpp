@@ -42,7 +42,7 @@
 #include <condition_variable>
 //debug
 #include <iostream>
-#include <cstdlib>
+#include <thread>
 
 
 struct file_des_lock
@@ -67,7 +67,7 @@ struct file_des_lock
     {
         //debug
         std::cout << "des: " << file_des << ", buffered_bytes: " << buffered_bytes << std::endl;
-        return buffered_bytes == 0;
+        return buffered_bytes <= 0;
     }
 };
 
@@ -212,6 +212,8 @@ ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
     std::cout << "myIO: myWrite(): " << fildes << std::endl;
 
     int bytes_written = write(fildes, buf, nbyte );
+    //debug
+    std::cout << "myIO: myWrite: bytes_written: " << bytes_written << std::endl;
 
     if (my_sock->is_socket == true)
     {
@@ -226,9 +228,21 @@ int myClose( int fd )
     //std::lock_guard<std::mutex> my_lg(file_des_list_mutex);
     //debug
     std::cout << "myIO: myClose(): " << fd << std::endl;
+
+
     int result = close(fd);
     if (result != -1)
     {
+        file_des_lock* my_fd = my_file_des_list.object_with(fd);
+        //std::cout << "myIO: myClose: fd: " << fd << std::endl;
+        //std::cout << "myIO: myClose: my_fd: " << my_fd << std::endl;
+        file_des_lock* my_fd_pair = my_file_des_list.object_with(my_fd->file_des_pair);
+        //std::cout << "myIO: myClose: fd: " << fd << ", fd_pair: " << my_fd->file_des_pair << std::endl;
+        if (my_fd_pair != nullptr)
+        {
+            my_fd_pair->buffered_bytes = 0;
+            my_fd_pair->my_cond.notify_one();
+        }
         my_file_des_list.remove(fd);
     }
 	return result;
@@ -252,32 +266,72 @@ int myTcdrain(int des)
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout)
 {
 
-    //debug
-    std::cout << "myIO: myReadcond(): " << des << std::endl;
-
-    int bytes_read = wcsReadcond(des, buf, n, min, time, timeout );
-    std::cout << "myIO: myReadcond read: " << bytes_read << std::endl;
-
-
-    //race condition occurs where the des in the des_list is removed by Medium during blocking wcsreadcond() and dereferencing file_des_obj_pair here results in SIGSEGV
-    //this should prevent that from happening
-    file_des_lock* file_des_obj = my_file_des_list.object_with(des);
-    if (file_des_obj == nullptr)
+    //potentially blocking version, if there's anything to be read, have to read and then immediately return to subtract from buffered_bytes, otherwise deadlock
+    int iteration = 0;
+    int bytes_read = 0;
+    int bytes_left_to_read = n;
+    int total_bytes_read = 0;
+    while (true)
     {
-        return bytes_read;
+        //debug
+        ++iteration;
+        std::cout << "myIO: iteration: " << iteration << std::endl;
+
+        std::cout << "myIO: myReadcond(): " << des << std::endl;
+
+        //pointer arithmetic requires knowledge of size of type
+        bytes_read = wcsReadcond(des, static_cast<uint8_t*>(buf) + total_bytes_read, bytes_left_to_read, min ? 1 : 0, time, timeout );
+        std::cout << "myIO: myReadcond read: " << bytes_read << std::endl;
+
+        //error in wcReadcond
+        if (bytes_read == -1)
+        {
+            return total_bytes_read;
+        }
+
+        total_bytes_read += bytes_read;
+        bytes_left_to_read -= bytes_read;
+
+        std::cout << "myIO: myReadcond: total_bytes_read: " << total_bytes_read << std::endl;
+        std::cout << "myIO: myReadcond: bytes_left_to_read: " << bytes_left_to_read << std::endl;
+
+
+        //race condition occurs where the des in the des_list is removed by Medium during blocking wcsreadcond() and dereferencing file_des_obj_pair here results in SIGSEGV
+        //this should prevent that from happening
+        file_des_lock* file_des_obj = my_file_des_list.object_with(des);
+        if (file_des_obj == nullptr)
+        {
+            return total_bytes_read;
+        }
+
+        file_des_lock* file_des_obj_pair = my_file_des_list.object_with(file_des_obj->file_des_pair);
+        if (file_des_obj_pair == nullptr)
+        {
+            return total_bytes_read;
+        }
+
+        std::lock_guard<std::mutex> my_pair_lock(file_des_obj_pair->my_mutex);
+        file_des_obj_pair->buffered_bytes -= bytes_read;
+        std::cout << "myIO: myReadcond: buffered_bytes: " << file_des_obj_pair->buffered_bytes << std::endl;
+
+        if (file_des_obj_pair->buffered_bytes == 0)
+        {
+            std::cout << "myIO: myReadcond: notify_one() " << file_des_obj_pair->file_des << std::endl;
+            file_des_obj_pair->my_cond.notify_one();
+        }
+
+        if (total_bytes_read >= min || bytes_left_to_read <= 0)
+        {
+            return total_bytes_read;
+        }
+
+        if (min == 0)
+        {
+            return bytes_read;
+        }
+
+        //prevent consuming all of one core waiting for data in socket
+        std::this_thread::sleep_for (std::chrono::milliseconds(1));
     }
-    file_des_lock* file_des_obj_pair = my_file_des_list.object_with(file_des_obj->file_des_pair);
-    if (file_des_obj_pair == nullptr)
-    {
-        return bytes_read;
-    }
-
-    std::lock_guard<std::mutex> my_pair_lock(file_des_obj_pair->my_mutex);
-    file_des_obj_pair->buffered_bytes -= bytes_read;
-
-
-    file_des_obj_pair->my_cond.notify_one();
-
-	return bytes_read;
 }
 
