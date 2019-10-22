@@ -1,12 +1,12 @@
 //============================================================================
 //
-//% Student Name 1: student1
+//% Student Name 1: Xi Liang Lin
 //% Student 1 #: 123456781
-//% Student 1 userid (email): stu1 (stu1@sfu.ca)
+//% Student 1 userid (email): xlin@sfu.ca
 //
-//% Student Name 2: student2
-//% Student 2 #: 123456782
-//% Student 2 userid (email): stu2 (stu2@sfu.ca)
+//% Student Name 2: Gurmesh Shergill
+//% Student 2 #: 301314616
+//% Student 2 userid (email): gshergil@sfu.ca
 //
 //% Below, edit to list any people who helped you with the code in this file,
 //%      or put 'None' if nobody helped (the two of) you.
@@ -47,11 +47,11 @@
 struct file_des_lock
 {
     int file_des;
-    int file_des_pair;
-    std::mutex my_mutex;
+    int file_des_pair; // socket pair's descriptor
+    std::mutex my_mutex; // used to prevent a socket from being closed at the start of Tcdrain
     std::condition_variable my_cond;
     int buffered_bytes = 0;
-    bool is_socket;
+    bool is_socket; //
 
     file_des_lock(int new_file_des, int new_file_des_pair, bool is_socket)
     {
@@ -62,7 +62,7 @@ struct file_des_lock
         std::cout << "myIO: new des obj: " << new_file_des << ", pair: " << new_file_des_pair << ", is_socket: " << is_socket << std::endl;
     }
 
-    bool buffer_is_empty()
+    bool buffer_is_empty() //checks if thread is drained of data
     {
         //debug
         std::cout << "des: " << file_des << ", buffered_bytes: " << buffered_bytes << std::endl;
@@ -127,9 +127,7 @@ private:
     }
 };
 
-
 file_des_list my_file_des_list;
-
 
 //forward declaration for implementation below
 int myReadcond(int des, void * buf, int n, int min, int time, int timeout);
@@ -165,7 +163,9 @@ int myCreat(const char *pathname, mode_t mode)
     my_file_des_list.insert(file_des, -1, false);
     return file_des;
 }
-
+/*
+Function calls myReadcond() or reads directly from the file depending on if its a file descriptor or socket descriptor
+*/
 ssize_t myRead( int des, void* buf, size_t nbyte )
 {
     // file and socket descriptors won't collide: https://stackoverflow.com/questions/13378035/socket-and-file-descriptors
@@ -193,12 +193,7 @@ ssize_t myRead( int des, void* buf, size_t nbyte )
     }
 }
 
-/*
-ssize_t myRead( int fildes, void* buf, size_t nbyte )
-{
-	return read(fildes, buf, nbyte );
-}
-*/
+
 
 ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 {
@@ -226,6 +221,20 @@ ssize_t myWrite( int fildes, const void* buf, size_t nbyte )
 
 int myClose( int fd )
 {
+	
+	/*
+	idea dont know if it will work
+	
+	int result = close(fd);
+	std::lock_guard<std::mutex> my_lg(file_des_list_mutex); 
+	if(file_des_lock_list.at(fd))
+	{
+		return result;
+	}
+	
+	
+	
+	*/
     //std::lock_guard<std::mutex> my_lg(file_des_list_mutex);
     //debug
     std::cout << "myIO: myClose(): " << fd << std::endl;
