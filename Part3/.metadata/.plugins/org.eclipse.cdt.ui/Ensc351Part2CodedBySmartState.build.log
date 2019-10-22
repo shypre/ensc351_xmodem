@@ -1,10 +1,6 @@
-19:39:16 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+23:13:13 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
 make all 
-Building target: Ensc351Part2CodedBySmartState
-Invoking: GCC C++ Linker
-g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
-Finished building target: Ensc351Part2CodedBySmartState
- 
+make: Nothing to be done for 'all'.
 
-19:39:17 Build Finished (took 915ms)
+23:13:14 Build Finished (took 346ms)
 

@@ -6,6 +6,6 @@ org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1\ TestPpc/activeL
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1\ TestPpc/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
-org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2HandCoded/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2HandCoded/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2HandCoded/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part3-test/activeLaunchMode=debug

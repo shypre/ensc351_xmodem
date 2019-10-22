@@ -1,6 +1,19 @@
-19:44:54 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+23:13:24 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
+../myIO.cpp:120:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+         for (int i = 0; i < file_des_lock_list.size(); ++i)
+                           ^
+../myIO.cpp: In function ‘int myClose(int)’:
+../myIO.cpp:236:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
+             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
+                     ^
+../myIO.cpp:236:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
+subdir.mk:36: recipe for target 'myIO.o' failed
+make: *** [myIO.o] Error 1
 
-19:44:55 Build Finished (took 335ms)
+23:13:25 Build Finished (took 883ms)
 

@@ -14,16 +14,18 @@
 		<item value="473" key="DIALOG_HEIGHT"/>
 		<item value="617" key="DIALOG_X_ORIGIN"/>
 		<item value="190" key="DIALOG_Y_ORIGIN"/>
-		<item value="true" key="BUILD_NOW"/>
+		<item value="false" key="BUILD_NOW"/>
 	</section>
 	<section name="ExternalProjectImportWizard">
 		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
 		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
-		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3"/>
 			<item value=""/>
 		</list>
 		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
 			<item value="/mnt/hgfs/VMsf/Ensc351part1-Linux.zip"/>
 		</list>
 	</section>
