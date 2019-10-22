@@ -226,14 +226,16 @@ int myClose( int fd )
     file_des_lock* my_fd_pair = nullptr;
     //std::cout << "myIO: myClose: fd: " << fd << ", fd_pair: " << my_fd->file_des_pair << std::endl;
 
-    std::unique_lock<std::mutex> my_lock();
+    std::mutex temp_mutex;
+    std::unique_lock<std::mutex> my_lock(temp_mutex, std::defer_lock);
 
     if (my_fd != nullptr)
     {
         my_fd_pair = my_file_des_list.object_with(my_fd->file_des_pair);
         if (my_fd_pair != nullptr)
         {
-            my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
+            std::unique_lock<std::mutex> my_lock2(my_fd_pair->my_mutex);
+            std::swap<std::mutex>(my_lock, my_lock2);
         }
     }
 

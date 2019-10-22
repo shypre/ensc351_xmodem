@@ -1,154 +1,21 @@
-22:54:35 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../ReceiverX.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
-Finished building: ../ReceiverX.cpp
- 
-Building target: libEnsc351Part2SolnLib.a
-Invoking: GCC Archiver
-ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
-Finished building target: libEnsc351Part2SolnLib.a
- 
-22:54:40 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+10:31:33 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
 make: Nothing to be done for 'all'.
-22:54:41 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
+10:31:33 **** Build of configuration Debug for project Ensc351Part3-test ****
 make all 
-Building target: Ensc351Part2HandCoded
-Invoking: GCC C++ Linker
-g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
-Finished building target: Ensc351Part2HandCoded
- 
-22:57:09 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
+Building file: ../src/Ensc351Part3-test.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:119:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-Finished building: ../myIO.cpp
+g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ensc351Part3-test.d" -MT"src/Ensc351Part3-test.o" -o "src/Ensc351Part3-test.o" "../src/Ensc351Part3-test.cpp"
+Finished building: ../src/Ensc351Part3-test.cpp
  
-Building target: libEnsc351Part2SolnLib.a
-Invoking: GCC Archiver
-ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
-Finished building target: libEnsc351Part2SolnLib.a
- 
-22:57:10 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
-make all 
-Building target: Ensc351Part2HandCoded
-Invoking: GCC C++ Linker
-g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
-Finished building target: Ensc351Part2HandCoded
- 
-22:57:33 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-make: Nothing to be done for 'all'.
-22:57:33 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
-make all 
 Building target: Ensc351Part3-test
 Invoking: GCC C++ Linker
 g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -o "Ensc351Part3-test"  ./src/Ensc351Part3-test.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
 Finished building target: Ensc351Part3-test
  
-23:06:43 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:119:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-../myIO.cpp: In function ‘int myClose(int)’:
-../myIO.cpp:239:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
-             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
-                     ^
-../myIO.cpp:239:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
-subdir.mk:36: recipe for target 'myIO.o' failed
-make: *** [myIO.o] Error 1
-23:06:44 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
+10:32:45 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
 make: Nothing to be done for 'all'.
-23:07:37 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:119:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-../myIO.cpp: In function ‘int myClose(int)’:
-../myIO.cpp:239:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
-             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
-                     ^
-../myIO.cpp:239:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
-subdir.mk:36: recipe for target 'myIO.o' failed
-make: *** [myIO.o] Error 1
-23:07:38 **** Incremental Build of configuration Debug for project Ensc351Part2HandCoded ****
-make all 
-make: Nothing to be done for 'all'.
-23:07:59 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:119:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-../myIO.cpp: In function ‘int myClose(int)’:
-../myIO.cpp:239:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
-             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
-                     ^
-../myIO.cpp:239:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
-subdir.mk:36: recipe for target 'myIO.o' failed
-make: *** [myIO.o] Error 1
-23:08:00 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
-make all 
-Building target: Ensc351Part2CodedBySmartState
-Invoking: GCC C++ Linker
-g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
-Finished building target: Ensc351Part2CodedBySmartState
- 
-23:13:12 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:120:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-../myIO.cpp: In function ‘int myClose(int)’:
-../myIO.cpp:236:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
-             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
-                     ^
-../myIO.cpp:236:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
-subdir.mk:36: recipe for target 'myIO.o' failed
-make: *** [myIO.o] Error 1
-23:13:13 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
-make all 
-make: Nothing to be done for 'all'.
-23:13:24 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
-make all 
-Building file: ../myIO.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2CodedBySmartState/src" -I"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2HandCoded/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
-../myIO.cpp: In member function ‘int file_des_list::contains(int)’:
-../myIO.cpp:120:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
-         for (int i = 0; i < file_des_lock_list.size(); ++i)
-                           ^
-../myIO.cpp: In function ‘int myClose(int)’:
-../myIO.cpp:236:21: error: assignment of function ‘std::unique_lock<std::mutex> my_lock()’
-             my_lock = std::unique_lock<std::mutex>(my_fd_pair->my_mutex);
-                     ^
-../myIO.cpp:236:21: error: cannot convert ‘std::unique_lock<std::mutex>’ to ‘std::unique_lock<std::mutex>()’ in assignment
-subdir.mk:36: recipe for target 'myIO.o' failed
-make: *** [myIO.o] Error 1
-23:13:25 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
+10:32:45 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
 make all 
 make: Nothing to be done for 'all'.
