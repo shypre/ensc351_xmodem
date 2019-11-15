@@ -1,6 +1,6 @@
-10:32:45 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+16:22:28 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
 make: Nothing to be done for 'all'.
 
-10:32:45 Build Finished (took 417ms)
+16:22:28 Build Finished (took 330ms)
 

@@ -41,13 +41,13 @@ endif
 all: Ensc351Part2CodedBySmartState
 
 dependents:
-	-cd /mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug && $(MAKE) all
+	-cd /home/osboxes/Desktop/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug && $(MAKE) all
 
 # Tool invocations
-Ensc351Part2CodedBySmartState: $(OBJS) $(USER_OBJS) /mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a
+Ensc351Part2CodedBySmartState: $(OBJS) $(USER_OBJS) /home/osboxes/Desktop/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351/Debug" -L"/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/osboxes/Desktop/ensc351_proj/git/ensc351lib/Ensc351/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -57,6 +57,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
-/mnt/hgfs/VMsf/ensc351/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a:
+/home/osboxes/Desktop/ensc351_proj/Part3/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a:
 
 -include ../makefile.targets
