@@ -2,15 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="rcvBlk[" key="selection"/>
+		<item value="TM_CHAR" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="TM_CHAR"/>
+			<item value="rcvBlk"/>
+			<item value="mediumD"/>
+			<item value="clearcan"/>
+			<item value="consoleInId"/>
+			<item value="purge"/>
 			<item value="rcvBlk["/>
 			<item value="rcvBlk[3]"/>
-			<item value="rcvBlk"/>
 			<item value="COUT"/>
 			<item value="TM_2CHAR + TM_CHAR)/2 * mSECS_PER_UNIT"/>
 			<item value="wcs"/>

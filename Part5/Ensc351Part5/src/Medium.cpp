@@ -19,7 +19,7 @@
 #include "PeerX.h"
 
 // Uncomment the line below to turn on debugging output from the medium
-//#define REPORT_INFO
+#define REPORT_INFO
 
 //This medium contains both kind and non-kind versions.
 //	See Medium.h

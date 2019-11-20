@@ -222,8 +222,17 @@ void ReceiverX::clearCan()
 {
 	char character=CAN;
 	//******** fill this function **************
-	if (character != CAN)
-		CON_OUT(consoleInId, character);
+	while(true)
+	{
+        int retVal = myReadcond(mediumD,&character,,,);  //TODO
+
+	    if (character != CAN)
+	    {
+	        CON_OUT(consoleInId, character);
+	        return;
+	    }
+	}
+
 }
 
 //The purge() subroutine will read and discard
@@ -231,4 +240,18 @@ void ReceiverX::clearCan()
 void ReceiverX::purge()
 {
 	// ********** you will need to fill in this function ***********
+    uint8_t purgeBuf[1];
+    int retVal = 0;
+    while(true)
+    {
+        retVal = myReadcond(mediumD, purgeBuf, 1, 1, dSECS_PER_UNIT*1, dSECS_PER_UNIT*1);
+        if (retVal < 0)
+        {
+            cerr << "error in ReceiverX::purge(): " << errno << endl;
+        }
+        if (retVal == 0)  // read nothing and timed out
+        {
+            return;
+        }
+    }
 }
