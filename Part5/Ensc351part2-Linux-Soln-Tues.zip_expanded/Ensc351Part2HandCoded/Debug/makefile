@@ -41,13 +41,13 @@ endif
 all: Ensc351Part2HandCoded
 
 dependents:
-	-cd /mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351Part2SolnLib/Debug && $(MAKE) clean all
+	-cd /home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug && $(MAKE) clean all
 
 # Tool invocations
-Ensc351Part2HandCoded: $(OBJS) $(USER_OBJS) /mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a
+Ensc351Part2HandCoded: $(OBJS) $(USER_OBJS) /home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C++ Linker'
-	g++ -L"/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351x-myio/Debug" -L"/home/osboxes/git2/ensc351lib/Ensc351/Debug" -L"/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351xmodem/Debug" -L"/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded" $(OBJS) $(USER_OBJS) $(LIBS)
+	g++ -L"/home/osboxes/Desktop/Ensc351/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -57,6 +57,6 @@ clean:
 	-@echo ' '
 
 .PHONY: all clean dependents
-/mnt/hgfs/VMsf/workspace-cpp-OxygenSeptember2/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a:
+/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a:
 
 -include ../makefile.targets
