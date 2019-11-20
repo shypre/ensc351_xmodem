@@ -1,7 +1,20 @@
-16:52:52 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
-make clean 
-rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+17:20:04 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
  
 
-16:52:52 Build Finished (took 335ms)
+17:20:05 Build Finished (took 984ms)
 

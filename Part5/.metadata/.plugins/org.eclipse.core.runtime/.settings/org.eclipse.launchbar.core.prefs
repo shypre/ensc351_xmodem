@@ -1,6 +1,6 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1 TestPpc,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2CodedBySmartState,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part3-test
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1 TestPpc,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part2CodedBySmartState,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part3-test,org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part5
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1\ TestPpc/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Ensc351Part1\ TestPpc/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
