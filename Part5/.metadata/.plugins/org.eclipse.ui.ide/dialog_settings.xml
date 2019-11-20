@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351"/>
+		<item value="/home/osboxes/Desktop/Ensc351"/>
+		<item value="/tmp/mozilla_osboxes0/Ensc351Part3-test.zip"/>
+		<item value="/tmp/mozilla_osboxes0/Ensc351part2-Linux-Soln-Tues.zip"/>
+		<item value="/home/osboxes/VMsf/workspace-cpp-OxygenSeptember/ensc351_proj/RemoteSystemsTempFiles"/>
+	</list>
+	<section name="CleanDialogSettings">
+		<item value="486" key="DIALOG_WIDTH"/>
+		<item value="true" key="BUILD_ALL"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="473" key="DIALOG_HEIGHT"/>
+		<item value="718" key="DIALOG_X_ORIGIN"/>
+		<item value="190" key="DIALOG_Y_ORIGIN"/>
+		<item value="false" key="BUILD_NOW"/>
+	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="true" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value=""/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value="/mnt/hgfs/VMsf/Ensc351part2-Linux.zip"/>
+			<item value="/mnt/hgfs/VMsf/Ensc351part1-Linux.zip"/>
+		</list>
+	</section>
+</section>

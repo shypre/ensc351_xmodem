@@ -1,0 +1,52 @@
+16:52:27 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:52:27 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+make all 
+Building file: ../src/ReceiverSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+Finished building: ../src/ReceiverSS.cpp
+ 
+Building file: ../src/SenderSS.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+Finished building: ../src/SenderSS.cpp
+ 
+Building target: Ensc351Part2HandCoded
+Invoking: GCC C++ Linker
+g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2HandCoded"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part2HandCoded
+ 
+16:52:30 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:52:31 **** Incremental Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+make all 
+make: Nothing to be done for 'all'.
+16:52:43 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+make all 
+make: Nothing to be done for 'all'.
+16:52:44 **** Incremental Build of configuration Debug for project Ensc351Part3-test ****
+make all 
+make: Nothing to be done for 'all'.
+16:52:51 **** Clean-only build of configuration Debug for project Ensc351 ****
+make clean 
+rm -rf  ./AtomicConsole.o ./ScopedMutex.o ./SocketReadcond.o ./VNPE.o ./ss_api.o  ./ScopedMutex.d ./ss_api.d  ./AtomicConsole.d ./SocketReadcond.d ./VNPE.d  libEnsc351.a
+ 
+16:52:51 **** Clean-only build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2CodedBySmartState
+ 
+16:52:52 **** Clean-only build of configuration Debug for project Ensc351Part2HandCoded ****
+make clean 
+rm -rf  ./src/ReceiverSS.o ./src/SenderSS.o  ./src/ReceiverSS.d ./src/SenderSS.d  Ensc351Part2HandCoded
+ 
+16:52:52 **** Clean-only build of configuration Debug for project Ensc351Part2SolnLib ****
+make clean 
+rm -rf  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o  ./Ensc351Part2.d ./Medium.d ./PeerX.d ./ReceiverX.d ./SenderX.d ./main.d ./myIO.d  libEnsc351Part2SolnLib.a
+ 
+16:52:52 **** Clean-only build of configuration Debug for project Ensc351Part3-test ****
+make clean 
+rm -rf  ./src/Ensc351Part3-test.o  ./src/Ensc351Part3-test.d  Ensc351Part3-test
+ 
