@@ -32,7 +32,7 @@
 
 //#include <arpa/inet.h>  // for htons() -- not available with MinGW
 #include "PeerX.h"
-//#include <fstream>
+#include <fstream>
 #include <sys/time.h>
 #include <string.h>
 #include "VNPE.h"
@@ -161,7 +161,7 @@ PeerX::
 transferCommon(std::shared_ptr<StateMgr> mySM, bool reportInfoParam)
 {
 	reportInfo = reportInfoParam;
-	/*
+
 	// use this code to send stateChart logging information to a file.
 	ofstream smLogFile; // need '#include <fstream>' above
 	smLogFile.open(smLogName, ios::binary|ios::trunc);
@@ -170,11 +170,11 @@ transferCommon(std::shared_ptr<StateMgr> mySM, bool reportInfoParam)
 		exit(EXIT_FAILURE);
 	}
 	mySM->setDebugLog(&smLogFile);
-	// */
+	//
 
 	// comment out the line below if you want to see logging information which will,
 	//	by default, go to cout.
-	mySM->setDebugLog(nullptr); // this will affect both peers.  Is this okay?
+	//mySM->setDebugLog(nullptr); // this will affect both peers.  Is this okay?
 
 	mySM->start();
 

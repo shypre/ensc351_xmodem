@@ -1,6 +1,46 @@
-17:20:03 **** Incremental Build of configuration Debug for project Ensc351Part2SolnLib ****
+18:04:12 **** Build of configuration Debug for project Ensc351Part2SolnLib ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../Ensc351Part2.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Ensc351Part2.d" -MT"Ensc351Part2.o" -o "Ensc351Part2.o" "../Ensc351Part2.cpp"
+Finished building: ../Ensc351Part2.cpp
+ 
+Building file: ../Medium.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Medium.d" -MT"Medium.o" -o "Medium.o" "../Medium.cpp"
+Finished building: ../Medium.cpp
+ 
+Building file: ../PeerX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"PeerX.d" -MT"PeerX.o" -o "PeerX.o" "../PeerX.cpp"
+Finished building: ../PeerX.cpp
+ 
+Building file: ../ReceiverX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ReceiverX.d" -MT"ReceiverX.o" -o "ReceiverX.o" "../ReceiverX.cpp"
+Finished building: ../ReceiverX.cpp
+ 
+Building file: ../SenderX.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"SenderX.d" -MT"SenderX.o" -o "SenderX.o" "../SenderX.cpp"
+Finished building: ../SenderX.cpp
+ 
+Building file: ../main.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../myIO.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2CodedBySmartState/src" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"myIO.d" -MT"myIO.o" -o "myIO.o" "../myIO.cpp"
+Finished building: ../myIO.cpp
+ 
+Building target: libEnsc351Part2SolnLib.a
+Invoking: GCC Archiver
+ar -r  "libEnsc351Part2SolnLib.a"  ./Ensc351Part2.o ./Medium.o ./PeerX.o ./ReceiverX.o ./SenderX.o ./main.o ./myIO.o   
+ar: creating libEnsc351Part2SolnLib.a
+Finished building target: libEnsc351Part2SolnLib.a
+ 
 
-17:20:04 Build Finished (took 305ms)
+18:04:15 Build Finished (took 3s.178ms)
 

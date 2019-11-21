@@ -1,4 +1,4 @@
-17:20:04 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
+18:04:15 **** Build of configuration Debug for project Ensc351Part2HandCoded ****
 make all 
 Building file: ../src/ReceiverSS.cpp
 Invoking: GCC C++ Compiler
@@ -16,5 +16,5 @@ g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/
 Finished building target: Ensc351Part2HandCoded
  
 
-17:20:05 Build Finished (took 984ms)
+18:04:16 Build Finished (took 1s.132ms)
 

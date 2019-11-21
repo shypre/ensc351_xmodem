@@ -1,4 +1,4 @@
-17:20:01 **** Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+18:04:16 **** Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
 make all 
 Building file: ../src/ReceiverSS.cpp
 Invoking: GCC C++ Compiler
@@ -16,5 +16,5 @@ g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/
 Finished building target: Ensc351Part2CodedBySmartState
  
 
-17:20:02 Build Finished (took 1s.81ms)
+18:04:18 Build Finished (took 1s.326ms)
 

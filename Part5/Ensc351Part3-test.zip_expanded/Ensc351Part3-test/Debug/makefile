@@ -41,7 +41,7 @@ endif
 all: Ensc351Part3-test
 
 dependents:
-	-cd /home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug && $(MAKE) all
+	-cd /home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug && $(MAKE) clean all
 
 # Tool invocations
 Ensc351Part3-test: $(OBJS) $(USER_OBJS) /home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug/libEnsc351Part2SolnLib.a

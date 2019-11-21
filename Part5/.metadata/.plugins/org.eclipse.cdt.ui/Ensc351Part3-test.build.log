@@ -1,7 +1,15 @@
-17:19:31 **** Clean-only build of configuration Debug for project Ensc351Part3-test ****
-make clean 
-rm -rf  ./src/Ensc351Part3-test.o  ./src/Ensc351Part3-test.d  Ensc351Part3-test
+18:04:18 **** Build of configuration Debug for project Ensc351Part3-test ****
+make all 
+Building file: ../src/Ensc351Part3-test.cpp
+Invoking: GCC C++ Compiler
+g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Ensc351Part3-test.d" -MT"src/Ensc351Part3-test.o" -o "src/Ensc351Part3-test.o" "../src/Ensc351Part3-test.cpp"
+Finished building: ../src/Ensc351Part3-test.cpp
+ 
+Building target: Ensc351Part3-test
+Invoking: GCC C++ Linker
+g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -o "Ensc351Part3-test"  ./src/Ensc351Part3-test.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+Finished building target: Ensc351Part3-test
  
 
-17:19:31 Build Finished (took 358ms)
+18:04:19 Build Finished (took 934ms)
 
