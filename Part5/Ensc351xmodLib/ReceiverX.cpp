@@ -1,10 +1,10 @@
-//% Student Name 1: student1
-//% Student 1 #: 123456781
-//% Student 1 userid (email): stu1 (stu1@sfu.ca)
+//% Student Name 1: Zi Xiang Lin
+//% Student 1 #: 301334912
+//% Student 1 userid (email): zxlin@sfu.ca
 //
-//% Student Name 2: student2
-//% Student 2 #: 123456782
-//% Student 2 userid (email): stu2 (stu2@sfu.ca)
+//% Student Name 2: Gurmesh Shergill
+//% Student 2 #: 301314616
+//% Student 2 userid (email): gshergil@sfu.ca
 //
 //% Below, edit to list any people who helped you with the code in this file,
 //%      or put 'None' if nobody helped (the two of) you.
@@ -249,11 +249,11 @@ void ReceiverX::clearCan()
 void ReceiverX::purge()
 {
 	// ********** you will need to fill in this function ***********
-    uint8_t purgeBuf[BUF_SZ];
+    uint8_t purgeBuf[1];
     int retVal = 0;
     while(true)
     {
-        retVal = myReadcond(mediumD, purgeBuf, BUF_SZ, 1, dSECS_PER_UNIT*TM_CHAR, dSECS_PER_UNIT*TM_CHAR);
+        retVal = myReadcond(mediumD, purgeBuf, 1, 1, dSECS_PER_UNIT*TM_CHAR, dSECS_PER_UNIT*TM_CHAR);
         if (retVal < 0)
         {
             cerr << "error in ReceiverX::purge(): " << errno << endl;

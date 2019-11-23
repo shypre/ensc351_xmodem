@@ -1,10 +1,10 @@
-//% Student Name 1: student1
-//% Student 1 #: 123456781
-//% Student 1 userid (email): stu1 (stu1@sfu.ca)
+//% Student Name 1: Zi Xiang Lin
+//% Student 1 #: 301334912
+//% Student 1 userid (email): zxlin@sfu.ca
 //
-//% Student Name 2: student2
-//% Student 2 #: 123456782
-//% Student 2 userid (email): stu2 (stu2@sfu.ca)
+//% Student Name 2: Gurmesh Shergill
+//% Student 2 #: 301314616
+//% Student 2 userid (email): gshergil@sfu.ca
 //
 //% Below, edit to list any people who helped you with the code in this file,
 //%      or put 'None' if nobody helped (the two of) you.
@@ -179,34 +179,64 @@ transferCommon(std::shared_ptr<StateMgr> mySM, bool reportInfoParam)
 	mySM->start();
 
 	/* ******** You may need to add code here ******** */
-	//fd_set set;
-	//FD_ZERO(&set);
+	// file descriptor set to choose which fd's to monitor for select()
+	fd_set set;
+	FD_ZERO(&set);
+
+    int nfds = max(mediumD, consoleInId) + 1;
+
 	struct timeval tv;
 
 	while(mySM->isRunning()) {
+	    FD_SET(mediumD, &set);
+	    FD_SET(consoleInId, &set);
 		// ************* this loop is going to need more work ************
-		//tv.tv_usec = 0;
+		tv.tv_usec = 0;
 		tv.tv_sec=0;
 		uint32_t now = elapsed_usecs();
-		//tv.tv_usec = absoluteTimeout - now; //time remaining 
+		tv.tv_usec = absoluteTimeout - now; //time remaining
+
 		if (now >= absoluteTimeout) {
-			//tv.tv_usec = 0; //resets timer
-			//tv.tv_sec = 0;
+		    // ...
+		    //resets timer
+			tv.tv_usec = 0;
+			tv.tv_sec = 0;
 			mySM->postEvent(TM);
 		} else {
 			// ...
-			/****/ {
-				//read character from medium
-				char byteToReceive;
-				PE_NOT(myRead(mediumD, &byteToReceive, 1), 1);
-				if (reportInfo)
-					COUT << logLeft << 1.0*(absoluteTimeout - now)/MILLION << ":" << (int)(unsigned char) byteToReceive << ":" << byteToReceive << logRight << flush;
-				mySM->postEvent(SER, byteToReceive);
-			}
+
+	        int retVal = select(nfds, &set, NULL, NULL, &tv);
+
+	        if (retVal == 0) {
+	            mySM->postEvent(TM);
+	        }
+	        else if (retVal < 0) {
+	            cerr << "error in PeerX::transferCommon(): " << errno << endl;
+	        }
+            /****/
+	        else {
+                if (FD_ISSET(mediumD, &set)) {
+                    //read character from medium
+                    char byteToReceive;
+                    PE_NOT(myRead(mediumD, &byteToReceive, 1), 1);
+                    if (reportInfo)
+                        COUT << logLeft << 1.0*(absoluteTimeout - now)/MILLION << ":" << (int)(unsigned char) byteToReceive << ":" << byteToReceive << logRight << flush;
+                    mySM->postEvent(SER, byteToReceive);
+                }
+                if (FD_ISSET(consoleInId, &set)) {
+                    //look for cancel
+                    char consoleBytes[LINEMAX]{};
+                    myRead(consoleInId, &consoleBytes, LINEMAX_SAFE);
+                    if (strncmp(consoleBytes, CANC_C, 2) == 0) {
+                        COUT << "KB_C event" << endl;
+                        mySM->postEvent(KB_C);
+                    }
+                }
+	        }
 		}
 	}
 	PE(close(transferringFileD));
-//		smLogFile.close();
+	smLogFile.close();
 }
 
 //Send a byte to the remote peer across the medium

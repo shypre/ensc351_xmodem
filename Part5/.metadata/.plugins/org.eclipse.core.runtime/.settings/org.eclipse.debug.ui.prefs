@@ -1,6 +1,7 @@
 Console.highWaterMark=808000
 Console.lowWaterMark=800000
 eclipse.preferences.version=1
+org.eclipse.debug.ui.BreakpointView+org.eclipse.debug.ui.actions.SkipAllBreakpoints=true
 org.eclipse.debug.ui.MemoryView.orientation=0
 org.eclipse.debug.ui.PREF_LAUNCH_PERSPECTIVES=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<launchPerspectives/>\n
 org.eclipse.debug.ui.UseContextualLaunch=false

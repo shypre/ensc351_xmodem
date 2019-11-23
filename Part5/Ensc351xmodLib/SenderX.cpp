@@ -1,10 +1,10 @@
-//% Student Name 1: student1
-//% Student 1 #: 123456781
-//% Student 1 userid (email): stu1 (stu1@sfu.ca)
+//% Student Name 1: Zi Xiang Lin
+//% Student 1 #: 301334912
+//% Student 1 userid (email): zxlin@sfu.ca
 //
-//% Student Name 2: student2
-//% Student 2 #: 123456782
-//% Student 2 userid (email): stu2 (stu2@sfu.ca)
+//% Student Name 2: Gurmesh Shergill
+//% Student 2 #: 301314616
+//% Student 2 userid (email): gshergil@sfu.ca
 //
 //% Below, edit to list any people who helped you with the code in this file,
 //%      or put 'None' if nobody helped (the two of) you.
