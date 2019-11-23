@@ -175,19 +175,23 @@ transferCommon(std::shared_ptr<StateMgr> mySM, bool reportInfoParam)
 	// comment out the line below if you want to see logging information which will,
 	//	by default, go to cout.
 	//mySM->setDebugLog(nullptr); // this will affect both peers.  Is this okay?
-
+	
 	mySM->start();
 
 	/* ******** You may need to add code here ******** */
-
+	//fd_set set;
+	//FD_ZERO(&set);
 	struct timeval tv;
 
 	while(mySM->isRunning()) {
 		// ************* this loop is going to need more work ************
+		//tv.tv_usec = 0;
 		tv.tv_sec=0;
 		uint32_t now = elapsed_usecs();
+		//tv.tv_usec = absoluteTimeout - now; //time remaining 
 		if (now >= absoluteTimeout) {
-			//...
+			//tv.tv_usec = 0; //resets timer
+			//tv.tv_sec = 0;
 			mySM->postEvent(TM);
 		} else {
 			// ...
