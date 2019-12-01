@@ -1,0 +1,24 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+### Toolchain: zedboard-armv7l-timesys-linux-gnueabi-gcc-4.9.3-20160621-01:33 ###
+CC=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-gcc
+STRIP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-strip
+CXX=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++
+CPP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-cpp
+RANLIB=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ranlib
+DEBUGGER=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-gdb
+AR=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ar
+AS=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-as
+OBJCOPY=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-objcopy
+OBJDUMP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-objdump
+LD=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ld
+NM=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-nm
+
+################################################################################# 
+# TimeStorm Flags  
+################################################################################
+ 
+ TIMESTORM_COMPILER_FLAGS = -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF 
+ TIMESTORM_LINKER_FLAGS = -o "TestCircularBuffer" 

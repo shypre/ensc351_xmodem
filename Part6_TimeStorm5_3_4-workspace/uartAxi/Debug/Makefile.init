@@ -1,0 +1,19 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+### Toolchain: zedboard-armv7l-timesys-linux-gnueabi-gcc-4.9.3-20160621-01:33 ###
+export CC=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-gcc
+export STRIP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-strip
+export CXX=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++
+export CPP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-cpp
+export RANLIB=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ranlib
+export DEBUGGER=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-gdb
+export AR=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ar
+export AS=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-as
+export OBJCOPY=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-objcopy
+export OBJDUMP=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-objdump
+export LD=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-ld
+export NM=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-nm
+export CROSS_COMPILE=/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-
+export ARCH=arm

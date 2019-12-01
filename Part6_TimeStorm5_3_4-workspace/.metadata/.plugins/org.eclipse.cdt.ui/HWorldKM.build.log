@@ -1,0 +1,6 @@
+22:28:49 **** Clean-only build of configuration Debug for project HWorldKM ****
+make -k clean 
+rm -f HWorldKM.o   HWorldKM.mod.c  HWorldKM.mod.o  HWorldKM.ko main.o    ./.HWorldKM.o.cmd  ./.HWorldKM.mod.o.cmd  ./.main.o.cmd  .HWorldKM.ko.cmd  main.c  
+
+22:28:49 Build Finished (took 327ms)
+

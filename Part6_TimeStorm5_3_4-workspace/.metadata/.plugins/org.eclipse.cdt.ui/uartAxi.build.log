@@ -1,0 +1,6 @@
+02:16:51 **** Clean-only build of configuration Debug for project uartAxi ****
+make -k clean 
+rm -f uartAxi.o   uartAxi.mod.c  uartAxi.mod.o  uartAxi.ko main.o    ./.uartAxi.o.cmd  ./.uartAxi.mod.o.cmd  ./.main.o.cmd  .uartAxi.ko.cmd 
+
+02:16:51 Build Finished (took 344ms)
+

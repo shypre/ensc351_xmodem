@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="com.timesys.ide.kernel.config.ko.debug.609447235">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.timesys.ide.kernel.config.ko.debug.609447235" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="ko" artifactName="${ProjName}" buildArtefactType="com.timesys.ide.kernel.kMod" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=com.timesys.ide.kernel.kMod" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="com.timesys.ide.kernel.config.ko.debug.609447235" name="Debug" parent="com.timesys.ide.kernel.config.ko.debug">
+					<folderInfo id="com.timesys.ide.kernel.config.ko.debug.609447235." name="/" resourcePath="">
+						<toolChain id="com.timesys.ide.kernel.toolchain.ko.debug.186243113" name="TimeStorm Cross-Compile Toolchain" superClass="com.timesys.ide.kernel.toolchain.ko.debug">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.timsys.ide.cdev.platform.1526679271" name="TimeStorm Abstract Platform" osList="all" superClass="com.timsys.ide.cdev.platform"/>
+							<builder buildPath="${workspace_loc:/WHelloKM}/Debug" id="com.timesys.ide.kernel.twoSixBuilder.debug.1869399549" keepEnvironmentInBuildfile="false" managedBuildOn="false" name="TimeSys LKM Builder" superClass="com.timesys.ide.kernel.twoSixBuilder.debug">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
+							<tool id="com.timesys.ide.cdev.tool.cpp.compiler.debug.2033487443" name="GCC C++ Compiler" superClass="com.timesys.ide.cdev.tool.cpp.compiler.debug"/>
+							<tool id="com.timesys.ide.cdev.tool.c.compiler.debug.1884488251" name="GCC C Compiler" superClass="com.timesys.ide.cdev.tool.c.compiler.debug">
+								<option id="com.timesys.ide.cdev.c.compiler.debug.option.optimization.level.564352943" name="Optimization Level" superClass="com.timesys.ide.cdev.c.compiler.debug.option.optimization.level" value="gnu.c.optimization.level.size" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.408259428" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include"/>
+								</option>
+								<inputType id="com.timesys.ide.cdev.tool.c.compiler.input.1826895846" superClass="com.timesys.ide.cdev.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.timesys.ide.cdev.tool.assembler.479581904" name="GCC Assembler" superClass="com.timesys.ide.cdev.tool.assembler">
+								<option id="com.timesys.ide.cdev.option.toolchain.1995181845" name="Toolchain (hidden)" superClass="com.timesys.ide.cdev.option.toolchain" value="zedboard-armv7l-timesys-linux-gnueabi-gcc-4.9.3-20160621-01:33" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1064826204" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="com.timesys.ide.managedbuild.tool.gnu.archiver.base.979637885" name="GCC Archiver" superClass="com.timesys.ide.managedbuild.tool.gnu.archiver.base"/>
+							<tool id="com.timesys.ide.kernel.tool.c.linker.ko.debug.853819353" name="GCC C Linker" superClass="com.timesys.ide.kernel.tool.c.linker.ko.debug">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.317511343" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="com.timesys.ide.kernel.config.ko.release.1690245252">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="com.timesys.ide.kernel.config.ko.release.1690245252" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="ko" artifactName="${ProjName}" buildArtefactType="com.timesys.ide.kernel.kMod" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=com.timesys.ide.kernel.kMod" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.MakeErrorParser;org.eclipse.cdt.core.GCCErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GASErrorParser" id="com.timesys.ide.kernel.config.ko.release.1690245252" name="Release" parent="com.timesys.ide.kernel.config.ko.release">
+					<folderInfo id="com.timesys.ide.kernel.config.ko.release.1690245252." name="/" resourcePath="">
+						<toolChain id="com.timesys.ide.kernel.toolchain.ko.release.168646639" name="TimeStorm Cross-Compile Toolchain" superClass="com.timesys.ide.kernel.toolchain.ko.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.timsys.ide.cdev.platform.444357211" name="TimeStorm Abstract Platform" osList="all" superClass="com.timsys.ide.cdev.platform"/>
+							<builder buildPath="${workspace_loc:/HWorldKM}/Release" id="com.timesys.ide.kernel.twoSixBuilder.release.1794708679" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="TimeSys LKM Builder" superClass="com.timesys.ide.kernel.twoSixBuilder.release"/>
+							<tool id="com.timesys.ide.cdev.tool.cpp.compiler.release.1787254923" name="GCC C++ Compiler" superClass="com.timesys.ide.cdev.tool.cpp.compiler.release"/>
+							<tool id="com.timesys.ide.cdev.tool.c.compiler.release.1464304241" name="GCC C Compiler" superClass="com.timesys.ide.cdev.tool.c.compiler.release">
+								<option id="gnu.c.compiler.option.include.paths.1490199861" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include"/>
+								</option>
+								<inputType id="com.timesys.ide.cdev.tool.c.compiler.input.34100509" superClass="com.timesys.ide.cdev.tool.c.compiler.input"/>
+							</tool>
+							<tool id="com.timesys.ide.cdev.tool.assembler.2096060741" name="GCC Assembler" superClass="com.timesys.ide.cdev.tool.assembler">
+								<option id="com.timesys.ide.cdev.option.toolchain.1407116428" name="Toolchain (hidden)" superClass="com.timesys.ide.cdev.option.toolchain" value="zedboard-armv7l-timesys-linux-gnueabi-gcc-4.9.3-20160621-01:33" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.609927834" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="com.timesys.ide.managedbuild.tool.gnu.archiver.base.1776495055" name="GCC Archiver" superClass="com.timesys.ide.managedbuild.tool.gnu.archiver.base"/>
+							<tool id="com.timesys.ide.kernel.tool.c.linker.ko.release.1625282102" name="GCC C Linker" superClass="com.timesys.ide.kernel.tool.c.linker.ko.release">
+								<inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1421653150" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="HWorldKM.com.timesys.ide.kernel.target.ko.425002734" name="Kernel Module" projectType="com.timesys.ide.kernel.target.ko"/>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.timesys.ide.kernel.config.ko.debug.609447235;com.timesys.ide.kernel.config.ko.debug.609447235.;com.timesys.ide.cdev.tool.c.compiler.debug.1884488251;com.timesys.ide.cdev.tool.c.compiler.input.1826895846">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.timesys.ide.cdev.TSManagedMakePerProjectProfile"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="com.timesys.ide.kernel.config.ko.release.1690245252;com.timesys.ide.kernel.config.ko.release.1690245252.;com.timesys.ide.cdev.tool.c.compiler.release.1464304241;com.timesys.ide.cdev.tool.c.compiler.input.34100509">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.timesys.ide.cdev.TSManagedMakePerProjectProfile"/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/HWorldKM"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/HWorldKM"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+	<storageModule moduleId="com.timesys.ide.cdev.projectData">
+		<tsData arch="arm" kernelDir="/home/osboxes/timesys/zedboard/kernel-source/linux-4.4" kernelOutputDir="/home/osboxes/timesys/zedboard-output/kernel-output"/>
+	</storageModule>
+</cproject>

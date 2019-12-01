@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.timesys.ide.kernel.launch.ModuleLaunchConfigDelegate">
+<stringAttribute key="CHECKED" value="CHECKED"/>
+<stringAttribute key="com.timesys.ide.EXEC_COMMAND" value="sh ./mod_install.sh"/>
+<listAttribute key="com.timesys.ide.FILE_LIST">
+<listEntry value="[Target Program]"/>
+<listEntry value="."/>
+<listEntry value="[Workspace]/HWorldKM/mod_install.sh"/>
+<listEntry value="."/>
+</listAttribute>
+<booleanAttribute key="com.timesys.ide.USE_DEFAULT_COMMAND" value="false"/>
+<stringAttribute key="com.timesys.ideTARGET_ID" value="Zedboard"/>
+<stringAttribute key="org.eclipse.cdt.dsf.gdb.HOST" value="zedboard"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.REMOTE_TCP" value="true"/>
+<intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
+<stringAttribute key="org.eclipse.cdt.launch.COREFILE_PATH" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_ARGUMENTS" value="./HWorldKM.ko"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/HWorldKM.ko"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="HWorldKM"/>
+<booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="com.timesys.ide.kernel.config.ko.debug.609447235"/>
+<stringAttribute key="org.eclipse.cdt.launch.WORKING_DIRECTORY" value="."/>
+<booleanAttribute key="org.eclipse.cdt.launch.use_terminal" value="true"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/HWorldKM"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="process_factory_id" value="org.eclipse.cdt.dsf.gdb.GdbProcessFactory"/>
+</launchConfiguration>

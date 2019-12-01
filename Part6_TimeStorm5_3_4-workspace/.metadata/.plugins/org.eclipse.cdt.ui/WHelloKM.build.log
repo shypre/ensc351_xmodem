@@ -1,0 +1,6 @@
+23:25:04 **** Clean-only build of configuration Debug for project WHelloKM ****
+make -k clean 
+rm -f WHelloKM.o   WHelloKM.mod.c  WHelloKM.mod.o  WHelloKM.ko main.o    ./.WHelloKM.o.cmd  ./.WHelloKM.mod.o.cmd  ./.main.o.cmd  .WHelloKM.ko.cmd 
+
+23:25:04 Build Finished (took 327ms)
+

@@ -1,0 +1,4 @@
+#Sat Nov 16 23:16:52 PST 2019
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=Debug Configurations
