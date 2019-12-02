@@ -161,6 +161,7 @@ static void uart_received(char data)
 static void uart_send(char data)
 {
 	// ***** Finish me by adding stuff here! *****
+        wake_up_interruptible(&uart->writeable);
 	iowrite32(data, uart->base_addr + UART_THR_OFFSET);
 }
 
@@ -183,7 +184,6 @@ static void uart_tasklet_func(unsigned long d) {
 
         while (tx_ready() && !kfifo_is_empty(&uart->out_fifo)) {
         	kfifo_out(&uart->out_fifo, &data_out, sizeof(data_out));
-                wake_up_interruptible(&uart->writeable);
         	printk(KERN_ALERT "%s: data_out=%d %c\n", __func__, data_out, data_out >= 32 ? data_out : ' ');
 		uart_send(data_out);
 	}

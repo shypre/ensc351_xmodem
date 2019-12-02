@@ -2,20 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="kfifo_out" key="selection"/>
+		<item value="uart_write" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="uart_write"/>
+			<item value="uart_isr"/>
 			<item value="kfifo_out"/>
 			<item value="kfifo_get"/>
 			<item value="kfifo_from_user"/>
 			<item value="out_fifo"/>
 			<item value="uart_tasklet"/>
-			<item value="uart_write"/>
 			<item value="UART_THR_OFFSET"/>
-			<item value="iowrite32"/>
 		</list>
 		<list key="replacehistory">
 		</list>

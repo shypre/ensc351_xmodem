@@ -261,3 +261,63 @@ make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output
 make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
 make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
  
+12:43:14 **** Clean-only build of configuration Debug for project TestCircularBuffer ****
+make clean 
+rm -rf  ./src/TestCircularBuffer.o  ./src/TestCircularBuffer.d  TestCircularBuffer
+ 
+12:43:14 **** Clean-only build of configuration Debug for project WHelloKM ****
+make -k clean 
+rm -f WHelloKM.o   WHelloKM.mod.c  WHelloKM.mod.o  WHelloKM.ko main.o    ./.WHelloKM.o.cmd  ./.WHelloKM.mod.o.cmd  ./.main.o.cmd  .WHelloKM.ko.cmd 
+12:43:14 **** Clean-only build of configuration Debug for project uartAxi ****
+make -k clean 
+rm -f uartAxi.o   uartAxi.mod.c  uartAxi.mod.o  uartAxi.ko main.o    ./.uartAxi.o.cmd  ./.uartAxi.mod.o.cmd  ./.main.o.cmd  .uartAxi.ko.cmd 
+12:43:51 **** Build of configuration Debug for project TestCircularBuffer ****
+make all 
+Building file: ../src/TestCircularBuffer.cpp
+Invoking: GCC C++ Compiler
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF  "src/TestCircularBuffer.d" -MT "src/TestCircularBuffer.d" -o "src/TestCircularBuffer.o" "../src/TestCircularBuffer.cpp"
+Finished building: ../src/TestCircularBuffer.cpp
+ 
+Building target: TestCircularBuffer
+Invoking: GCC C++ Linker
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -o "TestCircularBuffer"   ./src/TestCircularBuffer.o   -lpthread
+Finished building target: TestCircularBuffer
+ 
+12:43:55 **** Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/main.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+12:43:58 **** Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+In file included from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:14:0:
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c: In function 'uart_tasklet_func':
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/kfifo.h:550:1: warning: ignoring return value of '__kfifo_uint_must_check_helper', declared with attribute warn_unused_result [-Wunused-result]
+ __kfifo_uint_must_check_helper( \
+ ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:185:10: note: in expansion of macro 'kfifo_out'
+          kfifo_out(&uart->out_fifo, &data_out, sizeof(data_out));
+          ^
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
