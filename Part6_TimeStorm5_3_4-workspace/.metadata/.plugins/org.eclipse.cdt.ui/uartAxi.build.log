@@ -1,6 +1,13 @@
-02:16:51 **** Clean-only build of configuration Debug for project uartAxi ****
-make -k clean 
-rm -f uartAxi.o   uartAxi.mod.c  uartAxi.mod.o  uartAxi.ko main.o    ./.uartAxi.o.cmd  ./.uartAxi.mod.o.cmd  ./.main.o.cmd  .uartAxi.ko.cmd 
+16:49:08 **** Incremental Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
 
-02:16:51 Build Finished (took 344ms)
+16:49:09 Build Finished (took 694ms)
 

@@ -1,4 +1,4 @@
-#Tue Nov 19 02:59:29 PST 2019
+#Sun Dec 01 16:55:11 PST 2019
 \!/instance=
 /instance/org.eclipse.cdt.core.prj-TestCircularBuffer/indexer/preferenceScope=0
 /instance/org.eclipse.cdt.core.prj-WHelloKM/indexer/preferenceScope=0
@@ -225,13 +225,15 @@
 /instance/org.eclipse.help.base/scope=
 /instance/org.eclipse.launchbar.core/LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 /instance/org.eclipse.launchbar.core/LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-/instance/org.eclipse.launchbar.core/configDescList=org.eclipse.launchbar.core.descriptorType.default\:HWorldKM Debug,org.eclipse.launchbar.core.descriptorType.default\:uartAxi Debug,org.eclipse.launchbar.core.descriptorType.default\:WHelloKM Debug,org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer Debug,org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer
+/instance/org.eclipse.launchbar.core/configDescList=org.eclipse.launchbar.core.descriptorType.default\:HWorldKM Debug,org.eclipse.launchbar.core.descriptorType.default\:WHelloKM Debug,org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer Debug,org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer,org.eclipse.launchbar.core.descriptorType.default\:uartAxi Debug
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:HWorldKM\ Debug/activeLaunchMode=run
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:HWorldKM\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer\ Debug/activeLaunchMode=debug
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer/activeLaunchMode=run
+/instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:TestCircularBuffer/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:WHelloKM\ Debug\ (1)/activeLaunchMode=debug
 /instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:WHelloKM\ Debug/activeLaunchMode=run
+/instance/org.eclipse.launchbar.core/org.eclipse.launchbar.core.descriptorType.default\:uartAxi\ Debug/activeLaunchMode=run
 /instance/org.eclipse.mylyn.context.core/mylyn.attention.migrated=true
 /instance/org.eclipse.mylyn.monitor.ui/org.eclipse.mylyn.monitor.activity.tracking.enabled.checked=true
 /instance/org.eclipse.mylyn.tasks.ui/migrated.task.repositories.secure.store=true
@@ -242,6 +244,7 @@
 /instance/org.eclipse.rse.core/org.eclipse.rse.systemtype.local.systemType.defaultUserId=osboxes
 /instance/org.eclipse.rse.core/useridperkey=osboxes.Local\=osboxes;
 /instance/org.eclipse.rse.ui/org.eclipse.rse.preferences.order.connections=osboxes.Local
+/instance/org.eclipse.search/org.eclipse.search.defaultPerspective=org.eclipse.search.defaultPerspective.none
 /instance/org.eclipse.team.ui/org.eclipse.team.ui.first_time=false
 /instance/org.eclipse.ui.browser/browsers=<?xml version\="1.0" encoding\="UTF-8"?>\n<web-browsers current\="0">\n<system/>\n<external location\="/usr/bin/env" name\="firefox" parameters\="firefox"/>\n</web-browsers>
 /instance/org.eclipse.ui.editors/indexResultIndication=false
@@ -278,6 +281,7 @@
 @org.eclipse.oomph.workingsets=1.7.0.v20170104-1401
 @org.eclipse.rse.core=3.3.100.201603151753
 @org.eclipse.rse.ui=3.3.300.201610252046
+@org.eclipse.search=3.11.1.v20161113-1700
 @org.eclipse.team.ui=3.8.0.v20160518-1906
 @org.eclipse.ui=3.108.1.v20160929-1045
 @org.eclipse.ui.browser=3.5.2.v20161114-0210

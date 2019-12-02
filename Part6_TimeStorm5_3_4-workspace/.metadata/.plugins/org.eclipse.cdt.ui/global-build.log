@@ -1,4 +1,263 @@
-02:57:11 **** Clean-only build of configuration Debug for project TestCircularBuffer ****
+14:09:08 **** Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:34:49 **** Build of configuration Debug for project TestCircularBuffer ****
+make all 
+Building file: ../src/TestCircularBuffer.cpp
+Invoking: GCC C++ Compiler
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF  "src/TestCircularBuffer.d" -MT "src/TestCircularBuffer.d" -o "src/TestCircularBuffer.o" "../src/TestCircularBuffer.cpp"
+Finished building: ../src/TestCircularBuffer.cpp
+ 
+Building target: TestCircularBuffer
+Invoking: GCC C++ Linker
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -o "TestCircularBuffer"   ./src/TestCircularBuffer.o   -lpthread
+Finished building target: TestCircularBuffer
+ 
+16:34:52 **** Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/main.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:34:53 **** Incremental Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+In file included from /home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/completion.h:11:0,
+                 from /home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/rcupdate.h:43,
+                 from /home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/rbtree.h:34,
+                 from /home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/sched.h:22,
+                 from /home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/uaccess.h:4,
+                 from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:6:
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c: In function 'uart_tasklet_func':
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/wait.h:171:34: error: expected ';' before '__wake_up'
+ #define wake_up_interruptible(x) __wake_up(x, TASK_INTERRUPTIBLE, 1, NULL)
+                                  ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:187:17: note: in expansion of macro 'wake_up_interruptible'
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/scripts/Makefile.build:258: recipe for target '/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o' failed
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/Makefile:1384: recipe for target '_module_/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug' failed
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+Makefile:146: recipe for target 'sub-make' failed
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+Makefile:45: recipe for target 'callmake' failed
+                 wake_up_interruptible(&uart->writeable);
+                 ^
+In file included from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:14:0:
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/kfifo.h:425:1: warning: ignoring return value of '__kfifo_uint_must_check_helper', declared with attribute warn_unused_result [-Wunused-result]
+ __kfifo_uint_must_check_helper( \
+ ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:185:10: note: in expansion of macro 'kfifo_get'
+          kfifo_get(&uart->out_fifo, &data_out)
+          ^
+make[3]: *** [/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o] Error 1
+make[3]: Target '__build' not remade because of errors.
+make[2]: *** [_module_/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug] Error 2
+make[2]: Target 'modules' not remade because of errors.
+make[1]: *** [sub-make] Error 2
+make[1]: Target 'modules' not remade because of errors.
+make: *** [callmake] Error 2
+make: Target 'all' not remade because of errors.
+16:39:01 **** Incremental Build of configuration Debug for project TestCircularBuffer ****
+make all 
+make: Nothing to be done for 'all'.
+16:39:02 **** Incremental Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:39:03 **** Incremental Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+In file included from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:14:0:
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c: In function 'uart_tasklet_func':
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/kfifo.h:425:1: warning: ignoring return value of '__kfifo_uint_must_check_helper', declared with attribute warn_unused_result [-Wunused-result]
+ __kfifo_uint_must_check_helper( \
+ ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:185:10: note: in expansion of macro 'kfifo_get'
+          kfifo_get(&uart->out_fifo, &data_out);
+          ^
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:44:18 **** Clean-only build of configuration Debug for project TestCircularBuffer ****
 make clean 
 rm -rf  ./src/TestCircularBuffer.o  ./src/TestCircularBuffer.d  TestCircularBuffer
+ 
+16:44:18 **** Clean-only build of configuration Debug for project WHelloKM ****
+make -k clean 
+rm -f WHelloKM.o   WHelloKM.mod.c  WHelloKM.mod.o  WHelloKM.ko main.o    ./.WHelloKM.o.cmd  ./.WHelloKM.mod.o.cmd  ./.main.o.cmd  .WHelloKM.ko.cmd 
+16:44:19 **** Clean-only build of configuration Debug for project uartAxi ****
+make -k clean 
+rm -f uartAxi.o   uartAxi.mod.c  uartAxi.mod.o  uartAxi.ko main.o    ./.uartAxi.o.cmd  ./.uartAxi.mod.o.cmd  ./.main.o.cmd  .uartAxi.ko.cmd 
+16:44:39 **** Build of configuration Debug for project TestCircularBuffer ****
+make all 
+Building file: ../src/TestCircularBuffer.cpp
+Invoking: GCC C++ Compiler
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF  "src/TestCircularBuffer.d" -MT "src/TestCircularBuffer.d" -o "src/TestCircularBuffer.o" "../src/TestCircularBuffer.cpp"
+Finished building: ../src/TestCircularBuffer.cpp
+ 
+Building target: TestCircularBuffer
+Invoking: GCC C++ Linker
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -o "TestCircularBuffer"   ./src/TestCircularBuffer.o   -lpthread
+Finished building target: TestCircularBuffer
+ 
+16:44:41 **** Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/main.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:44:43 **** Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+In file included from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:14:0:
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c: In function 'uart_tasklet_func':
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/kfifo.h:425:1: warning: ignoring return value of '__kfifo_uint_must_check_helper', declared with attribute warn_unused_result [-Wunused-result]
+ __kfifo_uint_must_check_helper( \
+ ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:186:10: note: in expansion of macro 'kfifo_get'
+          kfifo_get(&uart->out_fifo, &data_out);
+          ^
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:48:29 **** Clean-only build of configuration Debug for project TestCircularBuffer ****
+make clean 
+rm -rf  ./src/TestCircularBuffer.o  ./src/TestCircularBuffer.d  TestCircularBuffer
+ 
+16:48:30 **** Clean-only build of configuration Debug for project WHelloKM ****
+make -k clean 
+rm -f WHelloKM.o   WHelloKM.mod.c  WHelloKM.mod.o  WHelloKM.ko main.o    ./.WHelloKM.o.cmd  ./.WHelloKM.mod.o.cmd  ./.main.o.cmd  .WHelloKM.ko.cmd 
+16:48:30 **** Clean-only build of configuration Debug for project uartAxi ****
+make -k clean 
+rm -f uartAxi.o   uartAxi.mod.c  uartAxi.mod.o  uartAxi.ko main.o    ./.uartAxi.o.cmd  ./.uartAxi.mod.o.cmd  ./.main.o.cmd  .uartAxi.ko.cmd 
+16:48:33 **** Build of configuration Debug for project TestCircularBuffer ****
+make all 
+Building file: ../src/TestCircularBuffer.cpp
+Invoking: GCC C++ Compiler
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -std=c++1y -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF  "src/TestCircularBuffer.d" -MT "src/TestCircularBuffer.d" -o "src/TestCircularBuffer.o" "../src/TestCircularBuffer.cpp"
+Finished building: ../src/TestCircularBuffer.cpp
+ 
+Building target: TestCircularBuffer
+Invoking: GCC C++ Linker
+/home/osboxes/timesys/zedboard/toolchain/bin/armv7l-timesys-linux-gnueabi-g++ -o "TestCircularBuffer"   ./src/TestCircularBuffer.o   -lpthread
+Finished building target: TestCircularBuffer
+ 
+16:48:35 **** Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/main.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:48:36 **** Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  CC [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.o
+In file included from /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:14:0:
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c: In function 'uart_tasklet_func':
+/home/osboxes/timesys/zedboard/kernel-source/linux-4.4/include/linux/kfifo.h:550:1: warning: ignoring return value of '__kfifo_uint_must_check_helper', declared with attribute warn_unused_result [-Wunused-result]
+ __kfifo_uint_must_check_helper( \
+ ^
+/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/main.c:186:10: note: in expansion of macro 'kfifo_out'
+          kfifo_out(&uart->out_fifo, &data_out, sizeof(data_out));
+          ^
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.mod.o
+  LD [M]  /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug/uartAxi.ko
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:49:06 **** Incremental Build of configuration Debug for project TestCircularBuffer ****
+make all 
+make: Nothing to be done for 'all'.
+16:49:07 **** Incremental Build of configuration Debug for project WHelloKM ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  Building modules, stage 2.
+  MODPOST 1 modules
+WARNING: modpost: missing MODULE_LICENSE() in /home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/WHelloKM/Debug/WHelloKM.o
+see include/linux/module.h for more information
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+ 
+16:49:08 **** Incremental Build of configuration Debug for project uartAxi ****
+make -k all 
+make -C /home/osboxes/timesys/zedboard/kernel-source/linux-4.4 SUBDIRS=/home/osboxes/Desktop/ensc351_proj/Part6_TimeStorm5_3_4-workspace/uartAxi/Debug modules
+make[1]: Entering directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
+make[2]: Entering directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[2]: Leaving directory '/home/osboxes/timesys/zedboard-output/kernel-output'
+make[1]: Leaving directory '/home/osboxes/timesys/zedboard/kernel-source/linux-4.4'
  

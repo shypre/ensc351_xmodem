@@ -1,7 +1,6 @@
-02:57:11 **** Clean-only build of configuration Debug for project TestCircularBuffer ****
-make clean 
-rm -rf  ./src/TestCircularBuffer.o  ./src/TestCircularBuffer.d  TestCircularBuffer
- 
+16:49:06 **** Incremental Build of configuration Debug for project TestCircularBuffer ****
+make all 
+make: Nothing to be done for 'all'.
 
-02:57:11 Build Finished (took 340ms)
+16:49:06 Build Finished (took 277ms)
 

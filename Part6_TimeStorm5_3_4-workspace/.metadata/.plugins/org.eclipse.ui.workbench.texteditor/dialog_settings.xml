@@ -2,14 +2,20 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="main" key="selection"/>
+		<item value="kfifo_out" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="main"/>
-			<item value="FIFO_SIZE"/>
+			<item value="kfifo_out"/>
+			<item value="kfifo_get"/>
+			<item value="kfifo_from_user"/>
+			<item value="out_fifo"/>
+			<item value="uart_tasklet"/>
+			<item value="uart_write"/>
+			<item value="UART_THR_OFFSET"/>
+			<item value="iowrite32"/>
 		</list>
 		<list key="replacehistory">
 		</list>
@@ -18,7 +24,7 @@
 		<item value="316" key="DIALOG_WIDTH"/>
 		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="390" key="DIALOG_HEIGHT"/>
-		<item value="75" key="DIALOG_X_ORIGIN"/>
-		<item value="245" key="DIALOG_Y_ORIGIN"/>
+		<item value="118" key="DIALOG_X_ORIGIN"/>
+		<item value="242" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>
