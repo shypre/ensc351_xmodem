@@ -1,20 +1,6 @@
-21:15:10 **** Incremental Build of configuration Debug for project Ensc351Part5 ****
+15:26:26 **** Incremental Build of configuration Debug for project Ensc351Part5 ****
 make all 
-Building file: ../src/Medium.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351xmodLib" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -pthread -MMD -MP -MF"src/Medium.d" -MT"src/Medium.o" -o "src/Medium.o" "../src/Medium.cpp"
-Finished building: ../src/Medium.cpp
- 
-Building file: ../src/main3B.cpp
-Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351xmodLib" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -pthread -MMD -MP -MF"src/main3B.d" -MT"src/main3B.o" -o "src/main3B.o" "../src/main3B.cpp"
-Finished building: ../src/main3B.cpp
- 
-Building target: Ensc351Part5
-Invoking: GCC C++ Linker
-g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351xmodLib/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -pthread -o "Ensc351Part5"  ./src/Kvm.o ./src/Medium.o ./src/main3B.o   -lEnsc351xmodLib -lEnsc351
-Finished building target: Ensc351Part5
- 
+make: Nothing to be done for 'all'.
 
-21:15:11 Build Finished (took 1s.542ms)
+15:26:26 Build Finished (took 291ms)
 

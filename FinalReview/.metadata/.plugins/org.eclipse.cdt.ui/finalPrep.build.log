@@ -1,0 +1,6 @@
+15:30:32 **** Incremental Build of configuration Debug for project finalPrep ****
+make all 
+make: Nothing to be done for 'all'.
+
+15:30:32 Build Finished (took 336ms)
+

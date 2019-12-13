@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/home/osboxes/ensc351_proj/Part5"/>
 		<item value="/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351"/>
 		<item value="/home/osboxes/Desktop/Ensc351"/>
 		<item value="/tmp/mozilla_osboxes0/Ensc351Part3-test.zip"/>

@@ -1,20 +1,20 @@
-18:04:16 **** Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
+15:26:02 **** Build of configuration Debug for project Ensc351Part2CodedBySmartState ****
 make all 
 Building file: ../src/ReceiverSS.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
+g++ -std=c++1y -I"/home/osboxes/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/ensc351_proj/Part5/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/ReceiverSS.d" -MT"src/ReceiverSS.o" -o "src/ReceiverSS.o" "../src/ReceiverSS.cpp"
 Finished building: ../src/ReceiverSS.cpp
  
 Building file: ../src/SenderSS.cpp
 Invoking: GCC C++ Compiler
-g++ -std=c++1y -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
+g++ -std=c++1y -I"/home/osboxes/ensc351_proj/Part5/Ensc351" -I"/home/osboxes/ensc351_proj/Part5/Ensc351Part2SolnLib" -O0 -g3 -Wall -c -fmessage-length=0 -Wno-unused-variable -Wno-unknown-pragmas -MMD -MP -MF"src/SenderSS.d" -MT"src/SenderSS.o" -o "src/SenderSS.o" "../src/SenderSS.cpp"
 Finished building: ../src/SenderSS.cpp
  
 Building target: Ensc351Part2CodedBySmartState
 Invoking: GCC C++ Linker
-g++ -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/Desktop/ensc351_proj/Part5/Ensc351part2-Linux-Soln-Tues.zip_expanded/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
+g++ -L"/home/osboxes/ensc351_proj/Part5/Ensc351/Debug" -L"/home/osboxes/ensc351_proj/Part5/Ensc351Part2SolnLib/Debug" -o "Ensc351Part2CodedBySmartState"  ./src/ReceiverSS.o ./src/SenderSS.o   -lEnsc351Part2SolnLib -lEnsc351 -lpthread
 Finished building target: Ensc351Part2CodedBySmartState
  
 
-18:04:18 Build Finished (took 1s.326ms)
+15:26:04 Build Finished (took 1s.54ms)
 

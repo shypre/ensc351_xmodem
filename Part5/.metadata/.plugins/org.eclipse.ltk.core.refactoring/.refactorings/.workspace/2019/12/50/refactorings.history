@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 7 resources" deleteContents="false" description="Delete 7 resources" element1="/Ensc351" element2="/Ensc351Part2CodedBySmartState" element3="/Ensc351Part2HandCoded" element4="/Ensc351Part2SolnLib" element5="/Ensc351Part3-test" element6="/Ensc351Part5" element7="/Ensc351xmodLib" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="7" stamp="1576279269028"/>
+</session>

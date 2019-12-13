@@ -1,6 +1,6 @@
-21:15:09 **** Incremental Build of configuration Debug for project Ensc351xmodLib ****
+15:26:25 **** Incremental Build of configuration Debug for project Ensc351xmodLib ****
 make all 
 make: Nothing to be done for 'all'.
 
-21:15:10 Build Finished (took 289ms)
+15:26:26 Build Finished (took 292ms)
 
